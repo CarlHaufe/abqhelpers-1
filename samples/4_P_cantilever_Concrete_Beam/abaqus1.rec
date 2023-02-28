@@ -718,3 +718,11 @@ mdb.models['Concrete_beam_4_cantilever_B'].rootAssembly.generateMesh(regions=(
 mdb.models['Concrete_beam_4_cantilever_B'].rootAssembly.generateMesh(regions=(
     mdb.models['Concrete_beam_4_cantilever_B'].rootAssembly.instances['concrete-dummy-plates-1'], 
     ))
+mdb.models['Concrete_beam_4_cantilever_B'].rootAssembly.regenerate()
+mdb.Job(atTime=None, contactPrint=OFF, description='', echoPrint=OFF, 
+    explicitPrecision=SINGLE, getMemoryFromAnalysis=True, historyPrint=OFF, 
+    memory=90, memoryUnits=PERCENTAGE, model='Concrete_beam_4_cantilever_B', 
+    modelPrint=OFF, multiprocessingMode=DEFAULT, name=
+    'Concrete_beam_4_cantilever_B', nodalOutputPrecision=SINGLE, numCpus=4, 
+    numDomains=4, numGPUs=0, queue=None, resultsFormat=ODB, scratch='', type=
+    ANALYSIS, userSubroutine='', waitHours=0, waitMinutes=0)

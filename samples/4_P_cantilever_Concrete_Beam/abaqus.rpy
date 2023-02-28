@@ -100,3 +100,12 @@ execfile('4_P_cantilever_Concrete_Beam.py', __main__.__dict__)
 #: Partitioning failed for instance: concrete-dummy-plates-1
 #: Partitioning failed for instance: concrete-dummy-plates-1
 #: Partitioning failed for instance: concrete-dummy-plates-1
+#: Partitioning failed for instance: concrete-dummy-plates-1
+p = mdb.models['Concrete_beam_4_cantilever_B'].parts['concrete-dummy-plates']
+session.viewports['Viewport: 1'].setValues(displayedObject=p)
+a = mdb.models['Concrete_beam_4_cantilever_B'].rootAssembly
+session.viewports['Viewport: 1'].setValues(displayedObject=a)
+session.viewports['Viewport: 1'].assemblyDisplay.setValues(loads=ON, bcs=ON, 
+    predefinedFields=ON, connectors=ON, optimizationTasks=OFF, 
+    geometricRestrictions=OFF, stopConditions=OFF)
+session.viewports['Viewport: 1'].assemblyDisplay.setValues(step='load_disp')

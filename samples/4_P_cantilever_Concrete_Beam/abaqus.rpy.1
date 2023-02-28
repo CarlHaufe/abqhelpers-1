@@ -1,0 +1,360 @@
+# -*- coding: mbcs -*-
+#
+# Abaqus/CAE Release 2023 replay file
+# Internal Version: 2022_09_28-20.11.55 183150
+# Run by ac134018 on Mon Feb 27 14:04:23 2023
+#
+
+# from driverUtils import executeOnCaeGraphicsStartup
+# executeOnCaeGraphicsStartup()
+#: Executing "onCaeGraphicsStartup()" in the site directory ...
+from abaqus import *
+from abaqusConstants import *
+session.Viewport(name='Viewport: 1', origin=(0.0, 0.0), width=164.138534545898, 
+    height=134.296295166016)
+session.viewports['Viewport: 1'].makeCurrent()
+session.viewports['Viewport: 1'].maximize()
+from caeModules import *
+from driverUtils import executeOnCaeStartup
+executeOnCaeStartup()
+session.viewports['Viewport: 1'].partDisplay.geometryOptions.setValues(
+    referenceRepresentation=ON)
+execfile('4_P_cantilever_Concrete_Beam.py', __main__.__dict__)
+#: C:/temp\GitHub_ch/abqhelpers/helpers/filemanager.py:10: RuntimeWarning: Parent module 'helpers' not found while handling absolute import
+#:   import os
+#: C:/temp\GitHub_ch/abqhelpers/helpers/filemanager.py:11: RuntimeWarning: Parent module 'helpers' not found while handling absolute import
+#:   import sys
+#: C:/temp\GitHub_ch/abqhelpers/helpers/filemanager.py:12: RuntimeWarning: Parent module 'helpers' not found while handling absolute import
+#:   import shutil
+#: C:/temp\GitHub_ch/abqhelpers/src/abq_parts.py:17: RuntimeWarning: Parent module 'sec' not found while handling absolute import
+#:   from abaqus import *
+#: C:/temp\GitHub_ch/abqhelpers/src/abq_parts.py:18: RuntimeWarning: Parent module 'sec' not found while handling absolute import
+#:   from abaqusConstants import *
+#: C:/temp\GitHub_ch/abqhelpers/src/abq_parts.py:19: RuntimeWarning: Parent module 'sec' not found while handling absolute import
+#:   import os
+#: C:/temp\GitHub_ch/abqhelpers/src/abq_property.py:17: RuntimeWarning: Parent module 'sec' not found while handling absolute import
+#:   from abaqus import *
+#: C:/temp\GitHub_ch/abqhelpers/src/abq_property.py:18: RuntimeWarning: Parent module 'sec' not found while handling absolute import
+#:   from abaqusConstants import *
+#: C:/temp\GitHub_ch/abqhelpers/src/abq_property.py:19: RuntimeWarning: Parent module 'sec' not found while handling absolute import
+#:   from driverUtils import *
+#: C:/temp\GitHub_ch/abqhelpers/src/abq_property.py:20: RuntimeWarning: Parent module 'sec' not found while handling absolute import
+#:   from caeModules import *
+#: C:/temp\GitHub_ch/abqhelpers/src/abq_property.py:22: RuntimeWarning: Parent module 'sec' not found while handling absolute import
+#:   import os
+#: C:/temp\GitHub_ch/abqhelpers/src/abq_property.py:23: RuntimeWarning: Parent module 'sec' not found while handling absolute import
+#:   import pickle
+#: C:/temp\GitHub_ch/abqhelpers/src/abq_property.py:24: RuntimeWarning: Parent module 'sec' not found while handling absolute import
+#:   import numpy as np
+#: C:/temp\GitHub_ch/abqhelpers/src/abq_assembly.py:17: RuntimeWarning: Parent module 'sec' not found while handling absolute import
+#:   from abaqus import *
+#: C:/temp\GitHub_ch/abqhelpers/src/abq_assembly.py:18: RuntimeWarning: Parent module 'sec' not found while handling absolute import
+#:   from abaqusConstants import *
+#: C:/temp\GitHub_ch/abqhelpers/src/abq_assembly.py:19: RuntimeWarning: Parent module 'sec' not found while handling absolute import
+#:   import os
+#: C:/temp\GitHub_ch/abqhelpers/src/abq_interaction.py:17: RuntimeWarning: Parent module 'sec' not found while handling absolute import
+#:   from abaqus import *
+#: C:/temp\GitHub_ch/abqhelpers/src/abq_interaction.py:18: RuntimeWarning: Parent module 'sec' not found while handling absolute import
+#:   from abaqusConstants import *
+#: C:/temp\GitHub_ch/abqhelpers/src/abq_interaction.py:19: RuntimeWarning: Parent module 'sec' not found while handling absolute import
+#:   import os
+#: C:/temp\GitHub_ch/abqhelpers/src/abq_interaction.py:20: RuntimeWarning: Parent module 'sec' not found while handling absolute import
+#:   import pickle
+#: C:/temp\GitHub_ch/abqhelpers/src/abq_interaction.py:21: RuntimeWarning: Parent module 'sec' not found while handling absolute import
+#:   import numpy as np
+#: C:/temp\GitHub_ch/abqhelpers/src/abq_step.py:17: RuntimeWarning: Parent module 'sec' not found while handling absolute import
+#:   from abaqus import *
+#: C:/temp\GitHub_ch/abqhelpers/src/abq_step.py:18: RuntimeWarning: Parent module 'sec' not found while handling absolute import
+#:   from abaqusConstants import *
+#: C:/temp\GitHub_ch/abqhelpers/src/abq_mesh.py:17: RuntimeWarning: Parent module 'sec' not found while handling absolute import
+#:   from abaqus import *
+#: C:/temp\GitHub_ch/abqhelpers/src/abq_mesh.py:18: RuntimeWarning: Parent module 'sec' not found while handling absolute import
+#:   from abaqusConstants import *
+#: C:/temp\GitHub_ch/abqhelpers/src/abq_mesh.py:19: RuntimeWarning: Parent module 'sec' not found while handling absolute import
+#:   import os
+#: C:/temp\GitHub_ch/abqhelpers/src/abq_job.py:17: RuntimeWarning: Parent module 'sec' not found while handling absolute import
+#:   from abaqus import *
+#: C:/temp\GitHub_ch/abqhelpers/src/abq_job.py:18: RuntimeWarning: Parent module 'sec' not found while handling absolute import
+#:   from abaqusConstants import *
+#: The model "Concrete_beam_4_P_B" has been created.
+#: C:/temp\GitHub_ch/abqhelpers/helpers/filemanager.py:80: RuntimeWarning: Parent module 'helpers' not found while handling absolute import
+#:   import os
+#: C:/temp\GitHub_ch/abqhelpers/src/abq_property.py:46: RuntimeWarning: Parent module 'sec' not found while handling absolute import
+#:   from material import createMaterialFromDataString
+#: Material 'concrete_cdp_C50_60' has been copied to the current model.
+#: Material 'support_stiff' has been copied to the current model.
+#: Material 'reinforcement_b500' has been copied to the current model.
+#: Partitioning failed for instance: concrete-dummy-plates-1
+#: Partitioning failed for instance: concrete-dummy-plates-1
+#: Partitioning failed for instance: concrete-dummy-plates-1
+#: Partitioning failed for instance: concrete-dummy-plates-1
+#: Partitioning failed for instance: concrete-dummy-plates-1
+#: Partitioning failed for instance: concrete-dummy-plates-1
+#: Partitioning failed for instance: concrete-dummy-plates-1
+#: Partitioning failed for instance: concrete-dummy-plates-1
+#: Partitioning failed for instance: concrete-dummy-plates-1
+#: Partitioning failed for instance: concrete-dummy-plates-1
+#: Partitioning failed for instance: concrete-dummy-plates-1
+#: Partitioning failed for instance: concrete-dummy-plates-1
+#: Partitioning failed for instance: concrete-dummy-plates-1
+#: Partitioning failed for instance: concrete-dummy-plates-1
+#: Partitioning failed for instance: concrete-dummy-plates-1
+#: Partitioning failed for instance: concrete-dummy-plates-1
+#: Partitioning failed for instance: concrete-dummy-plates-1
+#: Warning: findAt could not find a geometric entity at (450.0, 50.0, 150.0)
+#* AttributeError: 'NoneType' object has no attribute 'index'
+#* File "4_P_cantilever_Concrete_Beam.py", line 282, in <module>
+#*     model, referencePoint[0], concrete_dummy_plates_asm)
+#* File "C:/temp\GitHub_ch/abqhelpers/src/abq_interaction.py", line 57, in 
+#* create_mpc_beam_constraint
+#*     face = (f[myFace.index:myFace.index+1], )
+p = mdb.models['Concrete_beam_4_P_B'].parts['concrete-dummy-plates']
+session.viewports['Viewport: 1'].setValues(displayedObject=p)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=2187.24, 
+    farPlane=3012.51, width=1739.5, height=538.496, cameraPosition=(-210.414, 
+    2475.76, 518.993), cameraUpVector=(0.052919, -0.143779, -0.988194))
+session.viewports['Viewport: 1'].view.setValues(nearPlane=2115.74, 
+    farPlane=3085.51, width=1682.64, height=520.894, cameraPosition=(-504.944, 
+    2220.87, -861.773), cameraUpVector=(0.378641, -0.520915, -0.765035), 
+    cameraTarget=(658.098, 23.6184, 55.399))
+session.viewports['Viewport: 1'].view.setValues(nearPlane=2241.2, 
+    farPlane=2976.67, width=1782.43, height=551.783, cameraPosition=(1.40661, 
+    2402.42, -907.068), cameraUpVector=(0.207046, -0.620427, -0.75644), 
+    cameraTarget=(648.51, 20.1807, 56.2567))
+session.viewports['Viewport: 1'].view.setValues(nearPlane=2217.79, 
+    farPlane=2997.1, width=1763.81, height=546.021, cameraPosition=(-71.269, 
+    2439.61, -749.728), cameraUpVector=(0.155082, -0.583484, -0.79718), 
+    cameraTarget=(649.65, 19.5973, 53.7884))
+session.viewports['Viewport: 1'].view.setValues(nearPlane=1963.75, 
+    farPlane=3191.43, width=1561.78, height=483.477, cameraPosition=(-1092.04, 
+    651.437, 1899.31), cameraUpVector=(0.493273, 0.82621, -0.272138), 
+    cameraTarget=(666.257, 48.6898, 10.6901))
+session.viewports['Viewport: 1'].view.setValues(nearPlane=2035.68, 
+    farPlane=3087.95, width=1618.98, height=501.187, cameraPosition=(-756.055, 
+    -1830.03, 1140.85), cameraUpVector=(-0.132407, 0.844623, 0.518729), 
+    cameraTarget=(656.836, 118.274, 31.9584))
+session.viewports['Viewport: 1'].view.setValues(nearPlane=2032.07, 
+    farPlane=3091.55, width=1616.11, height=500.299, cameraPosition=(-756.055, 
+    -1830.03, 1140.85), cameraUpVector=(0.278416, 0.652563, 0.704731), 
+    cameraTarget=(656.836, 118.274, 31.9584))
+session.viewports['Viewport: 1'].view.setValues(nearPlane=2148.52, 
+    farPlane=2973.16, width=1708.73, height=528.97, cameraPosition=(-252.598, 
+    -2238.6, 820.545), cameraUpVector=(0.213951, 0.555559, 0.803479), 
+    cameraTarget=(639.532, 132.317, 42.9677))
+session.viewports['Viewport: 1'].view.setValues(nearPlane=2140.65, 
+    farPlane=2981.02, width=1702.48, height=527.034, cameraPosition=(-252.598, 
+    -2238.6, 820.545), cameraUpVector=(0.14625, 0.580279, 0.801179), 
+    cameraTarget=(639.532, 132.317, 42.9677))
+session.viewports['Viewport: 1'].partDisplay.setValues(mesh=ON)
+session.viewports['Viewport: 1'].partDisplay.meshOptions.setValues(
+    meshTechnique=ON)
+session.viewports['Viewport: 1'].partDisplay.geometryOptions.setValues(
+    referenceRepresentation=OFF)
+a = mdb.models['Concrete_beam_4_P_B'].rootAssembly
+session.viewports['Viewport: 1'].setValues(displayedObject=a)
+session.viewports['Viewport: 1'].assemblyDisplay.setValues(
+    optimizationTasks=OFF, geometricRestrictions=OFF, stopConditions=OFF)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=2177.25, 
+    farPlane=3076.04, width=1832.46, height=567.273, cameraPosition=(-357.052, 
+    2495.42, 156.105), cameraUpVector=(0.179354, -0.253755, -0.950495), 
+    cameraTarget=(652.694, 15.1387, 69.1671))
+session.viewports['Viewport: 1'].view.setValues(nearPlane=2258.19, 
+    farPlane=2966.27, width=1900.59, height=588.363, cameraPosition=(319.579, 
+    931.156, 2530.36), cameraUpVector=(0.617155, 0.612858, -0.493482), 
+    cameraTarget=(639.116, 46.5282, 21.5238))
+session.viewports['Viewport: 1'].view.setValues(nearPlane=2198.2, 
+    farPlane=2978.36, width=1850.1, height=572.734, cameraPosition=(92.6417, 
+    -2223.8, 1215), cameraUpVector=(-0.0895544, 0.733273, 0.674011), 
+    cameraTarget=(644.947, 127.593, 55.3215))
+session.viewports['Viewport: 1'].view.setValues(nearPlane=2202.04, 
+    farPlane=2974.53, width=1853.33, height=573.733, cameraPosition=(92.6418, 
+    -2223.8, 1215), cameraUpVector=(0.171668, 0.687497, 0.705604), 
+    cameraTarget=(644.947, 127.593, 55.3215))
+session.viewports['Viewport: 1'].view.setValues(nearPlane=2289.68, 
+    farPlane=2888.17, width=1927.09, height=596.568, cameraPosition=(360.459, 
+    -2503.69, 439.978), cameraUpVector=(0.259146, 0.428308, 0.865677), 
+    cameraTarget=(635.524, 137.441, 82.5915))
+session.viewports['Viewport: 1'].view.setValues(nearPlane=2283.45, 
+    farPlane=2894.41, width=1921.85, height=594.945, cameraPosition=(360.459, 
+    -2503.69, 439.978), cameraUpVector=(0.0664808, 0.451628, 0.889726), 
+    cameraTarget=(635.524, 137.441, 82.5915))
+session.viewports['Viewport: 1'].view.setValues(nearPlane=2283.41, 
+    farPlane=2894.45, width=1921.82, height=594.935, cameraUpVector=(0.0559132, 
+    0.45275, 0.889883), cameraTarget=(635.524, 137.441, 82.5915))
+session.viewports['Viewport: 1'].view.setValues(nearPlane=2319.74, 
+    farPlane=2858.12, width=1438.73, height=445.387, viewOffsetX=-96.5157, 
+    viewOffsetY=-11.8831)
+session.viewports['Viewport: 1'].assemblyDisplay.setValues(loads=ON, bcs=ON, 
+    predefinedFields=ON, connectors=ON)
+session.viewports['Viewport: 1'].assemblyDisplay.setValues(mesh=ON, loads=OFF, 
+    bcs=OFF, predefinedFields=OFF, connectors=OFF)
+session.viewports['Viewport: 1'].assemblyDisplay.meshOptions.setValues(
+    meshTechnique=ON)
+cliCommand("""abq_mesh.seed_all_active_instances(
+    model, size=20.0, deviationFactor=0.1, minSizeFactor=0.1)""")
+cliCommand("""elemType1 = mesh.ElemType(elemCode=C3D20R)""")
+cliCommand("""elemTypes = (elemType1,)""")
+cliCommand("""abq_mesh.assign_mesh_control_all_active_instances(
+    model, elemTypes, elemShape=TET, technique=FREE)""")
+cliCommand("""abq_mesh.generate_mesh_all_active_instances(model)""")
+session.viewports['Viewport: 1'].view.setValues(nearPlane=2411.48, 
+    farPlane=2766.38, width=555.739, height=172.495, viewOffsetX=-414.224, 
+    viewOffsetY=-68.8872)
+p = mdb.models['Concrete_beam_4_P_B'].parts['concrete-dummy-plates']
+session.viewports['Viewport: 1'].setValues(displayedObject=p)
+a = mdb.models['Concrete_beam_4_P_B'].rootAssembly
+session.viewports['Viewport: 1'].setValues(displayedObject=a)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=2404.96, 
+    farPlane=2772.9, width=629.813, height=195.486, viewOffsetX=-414.943, 
+    viewOffsetY=-56.208)
+set1 = mdb.models['Concrete_beam_4_P_B'].rootAssembly.allInstances['concrete_beam-0'].sets['concrete_beam-0']
+leaf = dgm.LeafFromSets(sets=(set1, ))
+session.viewports['Viewport: 1'].assemblyDisplay.displayGroup.replace(
+    leaf=leaf)
+set1 = mdb.models['Concrete_beam_4_P_B'].rootAssembly.allInstances['concrete_beam-0'].sets['concrete_beam-0']
+leaf = dgm.LeafFromSets(sets=(set1, ))
+session.viewports['Viewport: 1'].assemblyDisplay.displayGroup.replace(
+    leaf=leaf)
+set1 = mdb.models['Concrete_beam_4_P_B'].rootAssembly.allInstances['concrete_beam-0'].sets['concrete_beam-0']
+leaf = dgm.LeafFromSets(sets=(set1, ))
+session.viewports['Viewport: 1'].assemblyDisplay.displayGroup.replace(
+    leaf=leaf)
+session.viewports['Viewport: 1'].view.setValues(width=598.372, height=185.727, 
+    viewOffsetX=-434.523, viewOffsetY=-59.6357)
+session.viewports['Viewport: 1'].assemblyDisplay.displayGroup.undoLast()
+set1 = mdb.models['Concrete_beam_4_P_B'].rootAssembly.allInstances['concrete_beam-0'].sets['concrete_beam-0']
+leaf = dgm.LeafFromSets(sets=(set1, ))
+session.viewports['Viewport: 1'].assemblyDisplay.displayGroup.add(leaf=leaf)
+leaf = dgm.Leaf(leafType=DEFAULT_MODEL)
+session.viewports['Viewport: 1'].assemblyDisplay.displayGroup.replace(
+    leaf=leaf)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=2305.82, 
+    farPlane=2872.04, width=1772.74, height=550.237, viewOffsetX=-179.643, 
+    viewOffsetY=31.2699)
+a = mdb.models['Concrete_beam_4_P_B'].rootAssembly
+partInstances =(a.instances['concrete-dummy-plates-1'], )
+a.deleteMesh(regions=partInstances)
+a = mdb.models['Concrete_beam_4_P_B'].rootAssembly
+partInstances =(a.instances['concrete-dummy-plates-1'], )
+a.seedPartInstance(regions=partInstances, size=2.0, deviationFactor=0.1, 
+    minSizeFactor=0.1)
+elemType1 = mesh.ElemType(elemCode=C3D8R, elemLibrary=STANDARD, 
+    kinematicSplit=AVERAGE_STRAIN, secondOrderAccuracy=OFF, 
+    hourglassControl=DEFAULT, distortionControl=DEFAULT)
+elemType2 = mesh.ElemType(elemCode=C3D6, elemLibrary=STANDARD, 
+    secondOrderAccuracy=OFF, distortionControl=DEFAULT)
+elemType3 = mesh.ElemType(elemCode=C3D4, elemLibrary=STANDARD, 
+    secondOrderAccuracy=OFF, distortionControl=DEFAULT)
+a = mdb.models['Concrete_beam_4_P_B'].rootAssembly
+c1 = a.instances['concrete-dummy-plates-1'].cells
+cells1 = c1.getSequenceFromMask(mask=('[#8000000 ]', ), )
+pickedRegions =(cells1, )
+a.setElementType(regions=pickedRegions, elemTypes=(elemType1, elemType2, 
+    elemType3))
+elemType1 = mesh.ElemType(elemCode=C3D8R, elemLibrary=STANDARD, 
+    kinematicSplit=AVERAGE_STRAIN, hourglassControl=DEFAULT)
+elemType2 = mesh.ElemType(elemCode=C3D6, elemLibrary=STANDARD, 
+    secondOrderAccuracy=OFF, distortionControl=DEFAULT)
+elemType3 = mesh.ElemType(elemCode=C3D4, elemLibrary=STANDARD, 
+    secondOrderAccuracy=OFF, distortionControl=DEFAULT)
+a = mdb.models['Concrete_beam_4_P_B'].rootAssembly
+c1 = a.instances['concrete-dummy-plates-1'].cells
+cells1 = c1.getSequenceFromMask(mask=('[#8000000 ]', ), )
+pickedRegions =(cells1, )
+a.setElementType(regions=pickedRegions, elemTypes=(elemType1, elemType2, 
+    elemType3))
+session.viewports['Viewport: 1'].view.setValues(nearPlane=2286.33, 
+    farPlane=2891.53, width=1997.45, height=619.984, viewOffsetX=-191.176, 
+    viewOffsetY=48.9289)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=2276.83, 
+    farPlane=2901.03, width=1989.15, height=617.409, cameraPosition=(359.537, 
+    -2504.03, 436.785), cameraUpVector=(0.0699239, 0.451259, 0.889649), 
+    cameraTarget=(634.602, 137.105, 79.399), viewOffsetX=-190.382, 
+    viewOffsetY=48.7258)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=2276.77, 
+    farPlane=2901.09, width=1989.11, height=617.394, viewOffsetX=184.553, 
+    viewOffsetY=4.06208)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=2276.77, 
+    farPlane=2901.09, width=1989.11, height=617.396, viewOffsetX=109.567, 
+    viewOffsetY=-10.3876)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=2273.95, 
+    farPlane=2903.91, width=2017.34, height=626.157, viewOffsetX=109.431, 
+    viewOffsetY=-10.3747)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=2274.16, 
+    farPlane=2903.7, width=2017.53, height=626.216, cameraPosition=(359.171, 
+    -2504.4, 433.764), cameraUpVector=(0.0469623, 0.453688, 0.889923), 
+    cameraTarget=(634.236, 136.734, 76.3785), viewOffsetX=109.441, 
+    viewOffsetY=-10.3757)
+p = mdb.models['Concrete_beam_4_P_B'].parts['concrete-dummy-plates']
+session.viewports['Viewport: 1'].setValues(displayedObject=p)
+a = mdb.models['Concrete_beam_4_P_B'].rootAssembly
+session.viewports['Viewport: 1'].setValues(displayedObject=a)
+a = mdb.models['Concrete_beam_4_P_B'].rootAssembly
+partInstances =(a.instances['concrete-dummy-plates-1'], )
+a.generateMesh(regions=partInstances)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=2430.57, 
+    farPlane=2747.3, width=304.029, height=105.873, viewOffsetX=-302.539, 
+    viewOffsetY=-21.5077)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=2317.28, 
+    farPlane=3156.16, width=289.858, height=100.938, cameraPosition=(-920.404, 
+    -2225.01, 2.55735), cameraUpVector=(0.247345, 0.20791, 0.946358), 
+    cameraTarget=(620.426, -33.8304, 62.1949), viewOffsetX=-288.439, 
+    viewOffsetY=-20.5052)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=2322.26, 
+    farPlane=3151.19, width=248.877, height=86.667, viewOffsetX=-289.058, 
+    viewOffsetY=-20.5492)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=2206.04, 
+    farPlane=3267.41, width=1645.78, height=573.114, viewOffsetX=78.8777, 
+    viewOffsetY=16.6222)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=2198.24, 
+    farPlane=3275.21, width=1639.96, height=571.088, cameraPosition=(-920.839, 
+    -2224.83, 7.30728), cameraUpVector=(0.28399, 0.182278, 0.941342), 
+    cameraTarget=(619.991, -33.6538, 66.9448), viewOffsetX=78.5988, 
+    viewOffsetY=16.5634)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=2178.61, 
+    farPlane=3294.83, width=1843.13, height=641.838, viewOffsetX=77.8969, 
+    viewOffsetY=16.4155)
+session.viewports['Viewport: 1'].view.setValues(session.views['Top'])
+session.viewports['Viewport: 1'].view.setValues(session.views['Bottom'])
+session.viewports['Viewport: 1'].view.setValues(session.views['Left'])
+session.viewports['Viewport: 1'].view.setValues(session.views['Left'])
+session.viewports['Viewport: 1'].view.setValues(session.views['Bottom'])
+a = mdb.models['Concrete_beam_4_P_B'].rootAssembly
+partInstances =(a.instances['concrete-dummy-plates-1'], )
+a.deleteMesh(regions=partInstances)
+session.viewports['Viewport: 1'].view.setProjection(projection=PARALLEL)
+elemType1 = mesh.ElemType(elemCode=C3D8R, elemLibrary=STANDARD, 
+    secondOrderAccuracy=OFF, distortionControl=DEFAULT)
+elemType2 = mesh.ElemType(elemCode=C3D6, elemLibrary=STANDARD)
+elemType3 = mesh.ElemType(elemCode=C3D4, elemLibrary=STANDARD, 
+    secondOrderAccuracy=OFF, distortionControl=DEFAULT)
+a = mdb.models['Concrete_beam_4_P_B'].rootAssembly
+c1 = a.instances['concrete-dummy-plates-1'].cells
+cells1 = c1.getSequenceFromMask(mask=('[#ffffffff #ff ]', ), )
+pickedRegions =(cells1, )
+a.setElementType(regions=pickedRegions, elemTypes=(elemType1, elemType2, 
+    elemType3))
+a = mdb.models['Concrete_beam_4_P_B'].rootAssembly
+partInstances =(a.instances['concrete-dummy-plates-1'], )
+a.generateMesh(regions=partInstances)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=2356.69, 
+    farPlane=2533.36, width=351.509, height=122.407, cameraPosition=(222.06, 
+    -2395.02, 46.8921), cameraTarget=(222.06, 50, 46.8921))
+a = mdb.models['Concrete_beam_4_P_B'].rootAssembly
+partInstances =(a.instances['concrete-dummy-plates-1'], )
+a.deleteMesh(regions=partInstances)
+a = mdb.models['Concrete_beam_4_P_B'].rootAssembly
+partInstances =(a.instances['concrete-dummy-plates-1'], )
+a.seedPartInstance(regions=partInstances, size=5.0, deviationFactor=0.1, 
+    minSizeFactor=0.1)
+elemType1 = mesh.ElemType(elemCode=C3D8R, elemLibrary=STANDARD, 
+    kinematicSplit=AVERAGE_STRAIN, secondOrderAccuracy=OFF, 
+    hourglassControl=DEFAULT, distortionControl=DEFAULT)
+elemType2 = mesh.ElemType(elemCode=C3D6, elemLibrary=STANDARD)
+elemType3 = mesh.ElemType(elemCode=C3D4, elemLibrary=STANDARD)
+a = mdb.models['Concrete_beam_4_P_B'].rootAssembly
+c1 = a.instances['concrete-dummy-plates-1'].cells
+cells1 = c1.getSequenceFromMask(mask=('[#ffffffff #ff ]', ), )
+pickedRegions =(cells1, )
+a.setElementType(regions=pickedRegions, elemTypes=(elemType1, elemType2, 
+    elemType3))

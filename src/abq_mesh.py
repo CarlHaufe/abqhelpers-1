@@ -64,3 +64,12 @@ def generate_mesh_all_active_instances(model,):
             # seed part instance
             a.generateMesh(
                 regions=(a.instances[key],)),
+
+
+def delete_mesh_all_active_instances(model,):
+    a = model.rootAssembly
+    for key in a.instances.keys():
+    # choose only active instances
+        if a.instances[key].ips != None:
+            a.deleteMesh(
+                regions=(a.instances[key],)),

@@ -1,0 +1,36 @@
+<Description>
+   ABAQUS/ABQcaeG rank 0 received the ABORT signal
+
+</Description>
+
+<Context>
+   ABQcaeG
+</Context>
+
+<Callstack>
+</Callstack>
+
+<Memory>
+   <Current>            0 GB </Current>
+   <Resident>           0 GB </Resident>
+   <Physical>          31 GB </Physical>
+   <Limit>              0 GB </Limit>
+   <Accessible>        31 GB </Accessible>
+   <Available>         19 GB </Available>
+   <Allocator>            DL </Allocator>
+</Memory>
+
+<Swap>
+       <Size>          36 GB </Size>
+       <Used>          14 GB </Used>
+       <Free>          21 GB </Free>
+</Swap>
+
+<Directories>
+  <current> C:\temp\GitHub_ch\abqhelpers\samples\4_P_cantilever_Concrete_Beam </current> <free>    375 GB </free>   <used>    100 GB </used> 
+     <temp> C:\Users\ac134018\AppData\Local\Temp </temp>    <free>    375 GB </free>
+</Directories>
+
+<Installation>
+</Installation>
+

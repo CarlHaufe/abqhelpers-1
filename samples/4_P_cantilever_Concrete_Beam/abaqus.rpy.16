@@ -2,7 +2,7 @@
 #
 # Abaqus/CAE Release 2023 replay file
 # Internal Version: 2022_09_28-20.11.55 183150
-# Run by ac134018 on Tue Feb 28 13:57:06 2023
+# Run by ac134018 on Tue Feb 28 13:41:40 2023
 #
 
 # from driverUtils import executeOnCaeGraphicsStartup
@@ -100,3 +100,19 @@ execfile('4_P_cantilever_Concrete_Beam.py', __main__.__dict__)
 #: Partitioning failed for instance: concrete-dummy-plates-1
 #: Partitioning failed for instance: concrete-dummy-plates-1
 #: Partitioning failed for instance: concrete-dummy-plates-1
+#: Partitioning failed for instance: concrete-dummy-plates-1
+p = mdb.models['Concrete_beam_4_cantilever_B'].parts['concrete-dummy-plates']
+session.viewports['Viewport: 1'].setValues(displayedObject=p)
+a = mdb.models['Concrete_beam_4_cantilever_B'].rootAssembly
+session.viewports['Viewport: 1'].setValues(displayedObject=a)
+session.viewports['Viewport: 1'].assemblyDisplay.setValues(loads=ON, bcs=ON, 
+    predefinedFields=ON, connectors=ON, optimizationTasks=OFF, 
+    geometricRestrictions=OFF, stopConditions=OFF)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=2396.67, 
+    farPlane=3010.12, width=1793.44, height=628.671, cameraPosition=(861.764, 
+    -1982.59, 1854.19), cameraUpVector=(-0.265683, 0.840853, 0.47157), 
+    cameraTarget=(652.685, 14.5712, 72.7444))
+session.viewports['Viewport: 1'].view.setValues(nearPlane=2242.03, 
+    farPlane=3143.24, width=1677.72, height=588.107, cameraPosition=(-257.346, 
+    -2284.21, 1124.68), cameraUpVector=(0.20778, 0.646041, 0.734478), 
+    cameraTarget=(644.815, 12.4501, 67.6143))

@@ -108,6 +108,9 @@ mdb.models['Concrete_beam_4_cantilever_B'].parts['support_plate-0'].Set(cells=
 mdb.models['Concrete_beam_4_cantilever_B'].parts['support_plate-1'].Set(cells=
     mdb.models['Concrete_beam_4_cantilever_B'].parts['support_plate-1'].cells.getSequenceFromMask(
     mask=('[#1 ]', ), ), name='support_plate-1')
+mdb.models['Concrete_beam_4_cantilever_B'].parts['load_traverse-0'].Set(cells=
+    mdb.models['Concrete_beam_4_cantilever_B'].parts['load_traverse-0'].cells.getSequenceFromMask(
+    mask=('[#1 ]', ), ), name='load_traverse-0')
 mdb.models['Concrete_beam_4_cantilever_B'].parts['reinforcement-0'].Set(edges=
     mdb.models['Concrete_beam_4_cantilever_B'].parts['reinforcement-0'].edges.getSequenceFromMask(
     mask=('[#1 ]', ), ), name='reinforcement-0')
@@ -185,6 +188,10 @@ mdb.models['Concrete_beam_4_cantilever_B'].parts['support_plate-1'].SectionAssig
     offset=0.0, offsetField='', offsetType=MIDDLE_SURFACE, region=
     mdb.models['Concrete_beam_4_cantilever_B'].parts['support_plate-1'].sets['support_plate-1']
     , sectionName='section-stiff', thicknessAssignment=FROM_SECTION)
+mdb.models['Concrete_beam_4_cantilever_B'].parts['load_traverse-0'].SectionAssignment(
+    offset=0.0, offsetField='', offsetType=MIDDLE_SURFACE, region=
+    mdb.models['Concrete_beam_4_cantilever_B'].parts['load_traverse-0'].sets['load_traverse-0']
+    , sectionName='section-stiff', thicknessAssignment=FROM_SECTION)
 mdb.models['Concrete_beam_4_cantilever_B'].parts['reinforcement-0'].SectionAssignment(
     offset=0.0, offsetField='', offsetType=MIDDLE_SURFACE, region=
     mdb.models['Concrete_beam_4_cantilever_B'].parts['reinforcement-0'].sets['reinforcement-0']
@@ -209,6 +216,11 @@ mdb.models['Concrete_beam_4_cantilever_B'].rootAssembly.Instance(dependent=OFF,
 mdb.models['Concrete_beam_4_cantilever_B'].rootAssembly.instances['load_plate-1'].translate(
     vector=(0, 0, 0))
 mdb.models['Concrete_beam_4_cantilever_B'].rootAssembly.Instance(dependent=OFF, 
+    name='load_traverse-0', part=
+    mdb.models['Concrete_beam_4_cantilever_B'].parts['load_traverse-0'])
+mdb.models['Concrete_beam_4_cantilever_B'].rootAssembly.instances['load_traverse-0'].translate(
+    vector=(0, 0, 0))
+mdb.models['Concrete_beam_4_cantilever_B'].rootAssembly.Instance(dependent=OFF, 
     name='support_plate-0', part=
     mdb.models['Concrete_beam_4_cantilever_B'].parts['support_plate-0'])
 mdb.models['Concrete_beam_4_cantilever_B'].rootAssembly.instances['support_plate-0'].translate(
@@ -228,6 +240,7 @@ mdb.models['Concrete_beam_4_cantilever_B'].rootAssembly.InstanceFromBooleanMerge
     [mdb.models['Concrete_beam_4_cantilever_B'].rootAssembly.instances['concrete_beam-0'], 
     mdb.models['Concrete_beam_4_cantilever_B'].rootAssembly.instances['load_plate-0'], 
     mdb.models['Concrete_beam_4_cantilever_B'].rootAssembly.instances['load_plate-1'], 
+    mdb.models['Concrete_beam_4_cantilever_B'].rootAssembly.instances['load_traverse-0'], 
     mdb.models['Concrete_beam_4_cantilever_B'].rootAssembly.instances['support_plate-0'], 
     mdb.models['Concrete_beam_4_cantilever_B'].rootAssembly.instances['support_plate-1']]
     , keepIntersections=ON, name='concrete-dummy-plates', originalInstances=
@@ -335,22 +348,12 @@ mdb.models['Concrete_beam_4_cantilever_B'].rootAssembly.DatumPlaneByPrincipalPla
 mdb.models['Concrete_beam_4_cantilever_B'].rootAssembly.PartitionCellByDatumPlane(
     cells=
     mdb.models['Concrete_beam_4_cantilever_B'].rootAssembly.instances['concrete-dummy-plates-1'].cells.getSequenceFromMask(
-    mask=('[#1f ]', ), ), datumPlane=
-    mdb.models['Concrete_beam_4_cantilever_B'].rootAssembly.datums[29])
-mdb.models['Concrete_beam_4_cantilever_B'].rootAssembly.PartitionCellByDatumPlane(
-    cells=
-    mdb.models['Concrete_beam_4_cantilever_B'].rootAssembly.instances['concrete-dummy-plates-1'].cells.getSequenceFromMask(
-    mask=('[#7f ]', ), ), datumPlane=
-    mdb.models['Concrete_beam_4_cantilever_B'].rootAssembly.datums[30])
-mdb.models['Concrete_beam_4_cantilever_B'].rootAssembly.PartitionCellByDatumPlane(
-    cells=
-    mdb.models['Concrete_beam_4_cantilever_B'].rootAssembly.instances['concrete-dummy-plates-1'].cells.getSequenceFromMask(
-    mask=('[#ff ]', ), ), datumPlane=
+    mask=('[#3f ]', ), ), datumPlane=
     mdb.models['Concrete_beam_4_cantilever_B'].rootAssembly.datums[31])
 mdb.models['Concrete_beam_4_cantilever_B'].rootAssembly.PartitionCellByDatumPlane(
     cells=
     mdb.models['Concrete_beam_4_cantilever_B'].rootAssembly.instances['concrete-dummy-plates-1'].cells.getSequenceFromMask(
-    mask=('[#1ff ]', ), ), datumPlane=
+    mask=('[#ff ]', ), ), datumPlane=
     mdb.models['Concrete_beam_4_cantilever_B'].rootAssembly.datums[32])
 mdb.models['Concrete_beam_4_cantilever_B'].rootAssembly.PartitionCellByDatumPlane(
     cells=
@@ -360,243 +363,253 @@ mdb.models['Concrete_beam_4_cantilever_B'].rootAssembly.PartitionCellByDatumPlan
 mdb.models['Concrete_beam_4_cantilever_B'].rootAssembly.PartitionCellByDatumPlane(
     cells=
     mdb.models['Concrete_beam_4_cantilever_B'].rootAssembly.instances['concrete-dummy-plates-1'].cells.getSequenceFromMask(
-    mask=('[#7ff ]', ), ), datumPlane=
+    mask=('[#fff ]', ), ), datumPlane=
     mdb.models['Concrete_beam_4_cantilever_B'].rootAssembly.datums[34])
 mdb.models['Concrete_beam_4_cantilever_B'].rootAssembly.PartitionCellByDatumPlane(
     cells=
     mdb.models['Concrete_beam_4_cantilever_B'].rootAssembly.instances['concrete-dummy-plates-1'].cells.getSequenceFromMask(
-    mask=('[#fff ]', ), ), datumPlane=
+    mask=('[#3fff ]', ), ), datumPlane=
     mdb.models['Concrete_beam_4_cantilever_B'].rootAssembly.datums[35])
 mdb.models['Concrete_beam_4_cantilever_B'].rootAssembly.PartitionCellByDatumPlane(
     cells=
     mdb.models['Concrete_beam_4_cantilever_B'].rootAssembly.instances['concrete-dummy-plates-1'].cells.getSequenceFromMask(
-    mask=('[#1fff ]', ), ), datumPlane=
+    mask=('[#7fff ]', ), ), datumPlane=
     mdb.models['Concrete_beam_4_cantilever_B'].rootAssembly.datums[36])
 mdb.models['Concrete_beam_4_cantilever_B'].rootAssembly.PartitionCellByDatumPlane(
     cells=
     mdb.models['Concrete_beam_4_cantilever_B'].rootAssembly.instances['concrete-dummy-plates-1'].cells.getSequenceFromMask(
-    mask=('[#3fff ]', ), ), datumPlane=
+    mask=('[#ffff ]', ), ), datumPlane=
     mdb.models['Concrete_beam_4_cantilever_B'].rootAssembly.datums[37])
 mdb.models['Concrete_beam_4_cantilever_B'].rootAssembly.PartitionCellByDatumPlane(
     cells=
     mdb.models['Concrete_beam_4_cantilever_B'].rootAssembly.instances['concrete-dummy-plates-1'].cells.getSequenceFromMask(
-    mask=('[#7fff ]', ), ), datumPlane=
+    mask=('[#1ffff ]', ), ), datumPlane=
     mdb.models['Concrete_beam_4_cantilever_B'].rootAssembly.datums[38])
-#* Feature creation failed.
 mdb.models['Concrete_beam_4_cantilever_B'].rootAssembly.PartitionCellByDatumPlane(
     cells=
     mdb.models['Concrete_beam_4_cantilever_B'].rootAssembly.instances['concrete-dummy-plates-1'].cells.getSequenceFromMask(
-    mask=('[#7fff ]', ), ), datumPlane=
+    mask=('[#3ffff ]', ), ), datumPlane=
     mdb.models['Concrete_beam_4_cantilever_B'].rootAssembly.datums[39])
 mdb.models['Concrete_beam_4_cantilever_B'].rootAssembly.PartitionCellByDatumPlane(
     cells=
     mdb.models['Concrete_beam_4_cantilever_B'].rootAssembly.instances['concrete-dummy-plates-1'].cells.getSequenceFromMask(
-    mask=('[#1ffff ]', ), ), datumPlane=
+    mask=('[#7ffff ]', ), ), datumPlane=
     mdb.models['Concrete_beam_4_cantilever_B'].rootAssembly.datums[40])
 #* Feature creation failed.
 mdb.models['Concrete_beam_4_cantilever_B'].rootAssembly.PartitionCellByDatumPlane(
     cells=
     mdb.models['Concrete_beam_4_cantilever_B'].rootAssembly.instances['concrete-dummy-plates-1'].cells.getSequenceFromMask(
-    mask=('[#1ffff ]', ), ), datumPlane=
+    mask=('[#7ffff ]', ), ), datumPlane=
     mdb.models['Concrete_beam_4_cantilever_B'].rootAssembly.datums[41])
 mdb.models['Concrete_beam_4_cantilever_B'].rootAssembly.PartitionCellByDatumPlane(
     cells=
     mdb.models['Concrete_beam_4_cantilever_B'].rootAssembly.instances['concrete-dummy-plates-1'].cells.getSequenceFromMask(
-    mask=('[#3ffff ]', ), ), datumPlane=
+    mask=('[#1fffff ]', ), ), datumPlane=
     mdb.models['Concrete_beam_4_cantilever_B'].rootAssembly.datums[42])
-mdb.models['Concrete_beam_4_cantilever_B'].rootAssembly.PartitionCellByDatumPlane(
-    cells=
-    mdb.models['Concrete_beam_4_cantilever_B'].rootAssembly.instances['concrete-dummy-plates-1'].cells.getSequenceFromMask(
-    mask=('[#7ffff ]', ), ), datumPlane=
-    mdb.models['Concrete_beam_4_cantilever_B'].rootAssembly.datums[43])
+#* Feature creation failed.
 mdb.models['Concrete_beam_4_cantilever_B'].rootAssembly.PartitionCellByDatumPlane(
     cells=
     mdb.models['Concrete_beam_4_cantilever_B'].rootAssembly.instances['concrete-dummy-plates-1'].cells.getSequenceFromMask(
     mask=('[#1fffff ]', ), ), datumPlane=
-    mdb.models['Concrete_beam_4_cantilever_B'].rootAssembly.datums[44])
+    mdb.models['Concrete_beam_4_cantilever_B'].rootAssembly.datums[43])
 mdb.models['Concrete_beam_4_cantilever_B'].rootAssembly.PartitionCellByDatumPlane(
     cells=
     mdb.models['Concrete_beam_4_cantilever_B'].rootAssembly.instances['concrete-dummy-plates-1'].cells.getSequenceFromMask(
     mask=('[#3fffff ]', ), ), datumPlane=
-    mdb.models['Concrete_beam_4_cantilever_B'].rootAssembly.datums[45])
+    mdb.models['Concrete_beam_4_cantilever_B'].rootAssembly.datums[44])
 mdb.models['Concrete_beam_4_cantilever_B'].rootAssembly.PartitionCellByDatumPlane(
     cells=
     mdb.models['Concrete_beam_4_cantilever_B'].rootAssembly.instances['concrete-dummy-plates-1'].cells.getSequenceFromMask(
     mask=('[#7fffff ]', ), ), datumPlane=
+    mdb.models['Concrete_beam_4_cantilever_B'].rootAssembly.datums[45])
+mdb.models['Concrete_beam_4_cantilever_B'].rootAssembly.PartitionCellByDatumPlane(
+    cells=
+    mdb.models['Concrete_beam_4_cantilever_B'].rootAssembly.instances['concrete-dummy-plates-1'].cells.getSequenceFromMask(
+    mask=('[#1ffffff ]', ), ), datumPlane=
     mdb.models['Concrete_beam_4_cantilever_B'].rootAssembly.datums[46])
 mdb.models['Concrete_beam_4_cantilever_B'].rootAssembly.PartitionCellByDatumPlane(
     cells=
     mdb.models['Concrete_beam_4_cantilever_B'].rootAssembly.instances['concrete-dummy-plates-1'].cells.getSequenceFromMask(
-    mask=('[#ffffff ]', ), ), datumPlane=
+    mask=('[#7ffffff ]', ), ), datumPlane=
     mdb.models['Concrete_beam_4_cantilever_B'].rootAssembly.datums[47])
 mdb.models['Concrete_beam_4_cantilever_B'].rootAssembly.PartitionCellByDatumPlane(
     cells=
     mdb.models['Concrete_beam_4_cantilever_B'].rootAssembly.instances['concrete-dummy-plates-1'].cells.getSequenceFromMask(
-    mask=('[#1ffffff ]', ), ), datumPlane=
+    mask=('[#1fffffff ]', ), ), datumPlane=
     mdb.models['Concrete_beam_4_cantilever_B'].rootAssembly.datums[48])
-#* Feature creation failed.
 mdb.models['Concrete_beam_4_cantilever_B'].rootAssembly.PartitionCellByDatumPlane(
     cells=
     mdb.models['Concrete_beam_4_cantilever_B'].rootAssembly.instances['concrete-dummy-plates-1'].cells.getSequenceFromMask(
-    mask=('[#1ffffff ]', ), ), datumPlane=
+    mask=('[#7fffffff ]', ), ), datumPlane=
     mdb.models['Concrete_beam_4_cantilever_B'].rootAssembly.datums[49])
-#* Feature creation failed.
 mdb.models['Concrete_beam_4_cantilever_B'].rootAssembly.PartitionCellByDatumPlane(
     cells=
     mdb.models['Concrete_beam_4_cantilever_B'].rootAssembly.instances['concrete-dummy-plates-1'].cells.getSequenceFromMask(
-    mask=('[#1ffffff ]', ), ), datumPlane=
+    mask=('[#ffffffff #1 ]', ), ), datumPlane=
     mdb.models['Concrete_beam_4_cantilever_B'].rootAssembly.datums[50])
 #* Feature creation failed.
 mdb.models['Concrete_beam_4_cantilever_B'].rootAssembly.PartitionCellByDatumPlane(
     cells=
     mdb.models['Concrete_beam_4_cantilever_B'].rootAssembly.instances['concrete-dummy-plates-1'].cells.getSequenceFromMask(
-    mask=('[#1ffffff ]', ), ), datumPlane=
+    mask=('[#ffffffff #1 ]', ), ), datumPlane=
     mdb.models['Concrete_beam_4_cantilever_B'].rootAssembly.datums[51])
 #* Feature creation failed.
 mdb.models['Concrete_beam_4_cantilever_B'].rootAssembly.PartitionCellByDatumPlane(
     cells=
     mdb.models['Concrete_beam_4_cantilever_B'].rootAssembly.instances['concrete-dummy-plates-1'].cells.getSequenceFromMask(
-    mask=('[#1ffffff ]', ), ), datumPlane=
+    mask=('[#ffffffff #1 ]', ), ), datumPlane=
     mdb.models['Concrete_beam_4_cantilever_B'].rootAssembly.datums[52])
 #* Feature creation failed.
 mdb.models['Concrete_beam_4_cantilever_B'].rootAssembly.PartitionCellByDatumPlane(
     cells=
     mdb.models['Concrete_beam_4_cantilever_B'].rootAssembly.instances['concrete-dummy-plates-1'].cells.getSequenceFromMask(
-    mask=('[#1ffffff ]', ), ), datumPlane=
+    mask=('[#ffffffff #1 ]', ), ), datumPlane=
     mdb.models['Concrete_beam_4_cantilever_B'].rootAssembly.datums[53])
 #* Feature creation failed.
 mdb.models['Concrete_beam_4_cantilever_B'].rootAssembly.PartitionCellByDatumPlane(
     cells=
     mdb.models['Concrete_beam_4_cantilever_B'].rootAssembly.instances['concrete-dummy-plates-1'].cells.getSequenceFromMask(
-    mask=('[#1ffffff ]', ), ), datumPlane=
+    mask=('[#ffffffff #1 ]', ), ), datumPlane=
     mdb.models['Concrete_beam_4_cantilever_B'].rootAssembly.datums[54])
 #* Feature creation failed.
 mdb.models['Concrete_beam_4_cantilever_B'].rootAssembly.PartitionCellByDatumPlane(
     cells=
     mdb.models['Concrete_beam_4_cantilever_B'].rootAssembly.instances['concrete-dummy-plates-1'].cells.getSequenceFromMask(
-    mask=('[#1ffffff ]', ), ), datumPlane=
+    mask=('[#ffffffff #1 ]', ), ), datumPlane=
     mdb.models['Concrete_beam_4_cantilever_B'].rootAssembly.datums[55])
 #* Feature creation failed.
 mdb.models['Concrete_beam_4_cantilever_B'].rootAssembly.PartitionCellByDatumPlane(
     cells=
     mdb.models['Concrete_beam_4_cantilever_B'].rootAssembly.instances['concrete-dummy-plates-1'].cells.getSequenceFromMask(
-    mask=('[#1ffffff ]', ), ), datumPlane=
+    mask=('[#ffffffff #1 ]', ), ), datumPlane=
     mdb.models['Concrete_beam_4_cantilever_B'].rootAssembly.datums[56])
 #* Feature creation failed.
 mdb.models['Concrete_beam_4_cantilever_B'].rootAssembly.PartitionCellByDatumPlane(
     cells=
     mdb.models['Concrete_beam_4_cantilever_B'].rootAssembly.instances['concrete-dummy-plates-1'].cells.getSequenceFromMask(
-    mask=('[#1ffffff ]', ), ), datumPlane=
+    mask=('[#ffffffff #1 ]', ), ), datumPlane=
     mdb.models['Concrete_beam_4_cantilever_B'].rootAssembly.datums[57])
 #* Feature creation failed.
 mdb.models['Concrete_beam_4_cantilever_B'].rootAssembly.PartitionCellByDatumPlane(
     cells=
     mdb.models['Concrete_beam_4_cantilever_B'].rootAssembly.instances['concrete-dummy-plates-1'].cells.getSequenceFromMask(
-    mask=('[#1ffffff ]', ), ), datumPlane=
+    mask=('[#ffffffff #1 ]', ), ), datumPlane=
     mdb.models['Concrete_beam_4_cantilever_B'].rootAssembly.datums[58])
 #* Feature creation failed.
 mdb.models['Concrete_beam_4_cantilever_B'].rootAssembly.PartitionCellByDatumPlane(
     cells=
     mdb.models['Concrete_beam_4_cantilever_B'].rootAssembly.instances['concrete-dummy-plates-1'].cells.getSequenceFromMask(
-    mask=('[#1ffffff ]', ), ), datumPlane=
+    mask=('[#ffffffff #1 ]', ), ), datumPlane=
     mdb.models['Concrete_beam_4_cantilever_B'].rootAssembly.datums[59])
 #* Feature creation failed.
 mdb.models['Concrete_beam_4_cantilever_B'].rootAssembly.PartitionCellByDatumPlane(
     cells=
     mdb.models['Concrete_beam_4_cantilever_B'].rootAssembly.instances['concrete-dummy-plates-1'].cells.getSequenceFromMask(
-    mask=('[#1ffffff ]', ), ), datumPlane=
+    mask=('[#ffffffff #1 ]', ), ), datumPlane=
     mdb.models['Concrete_beam_4_cantilever_B'].rootAssembly.datums[60])
 #* Feature creation failed.
 mdb.models['Concrete_beam_4_cantilever_B'].rootAssembly.PartitionCellByDatumPlane(
     cells=
     mdb.models['Concrete_beam_4_cantilever_B'].rootAssembly.instances['concrete-dummy-plates-1'].cells.getSequenceFromMask(
-    mask=('[#1ffffff ]', ), ), datumPlane=
+    mask=('[#ffffffff #1 ]', ), ), datumPlane=
     mdb.models['Concrete_beam_4_cantilever_B'].rootAssembly.datums[61])
 #* Feature creation failed.
 mdb.models['Concrete_beam_4_cantilever_B'].rootAssembly.PartitionCellByDatumPlane(
     cells=
     mdb.models['Concrete_beam_4_cantilever_B'].rootAssembly.instances['concrete-dummy-plates-1'].cells.getSequenceFromMask(
-    mask=('[#1ffffff ]', ), ), datumPlane=
+    mask=('[#ffffffff #1 ]', ), ), datumPlane=
     mdb.models['Concrete_beam_4_cantilever_B'].rootAssembly.datums[62])
-mdb.models['Concrete_beam_4_cantilever_B'].rootAssembly.PartitionCellByDatumPlane(
-    cells=
-    mdb.models['Concrete_beam_4_cantilever_B'].rootAssembly.instances['concrete-dummy-plates-1'].cells.getSequenceFromMask(
-    mask=('[#3ffffff ]', ), ), datumPlane=
-    mdb.models['Concrete_beam_4_cantilever_B'].rootAssembly.datums[63])
-mdb.models['Concrete_beam_4_cantilever_B'].rootAssembly.PartitionCellByDatumPlane(
-    cells=
-    mdb.models['Concrete_beam_4_cantilever_B'].rootAssembly.instances['concrete-dummy-plates-1'].cells.getSequenceFromMask(
-    mask=('[#7ffffff ]', ), ), datumPlane=
-    mdb.models['Concrete_beam_4_cantilever_B'].rootAssembly.datums[64])
-mdb.models['Concrete_beam_4_cantilever_B'].rootAssembly.PartitionCellByDatumPlane(
-    cells=
-    mdb.models['Concrete_beam_4_cantilever_B'].rootAssembly.instances['concrete-dummy-plates-1'].cells.getSequenceFromMask(
-    mask=('[#fffffff ]', ), ), datumPlane=
-    mdb.models['Concrete_beam_4_cantilever_B'].rootAssembly.datums[65])
-mdb.models['Concrete_beam_4_cantilever_B'].rootAssembly.PartitionCellByDatumPlane(
-    cells=
-    mdb.models['Concrete_beam_4_cantilever_B'].rootAssembly.instances['concrete-dummy-plates-1'].cells.getSequenceFromMask(
-    mask=('[#1fffffff ]', ), ), datumPlane=
-    mdb.models['Concrete_beam_4_cantilever_B'].rootAssembly.datums[66])
-mdb.models['Concrete_beam_4_cantilever_B'].rootAssembly.PartitionCellByDatumPlane(
-    cells=
-    mdb.models['Concrete_beam_4_cantilever_B'].rootAssembly.instances['concrete-dummy-plates-1'].cells.getSequenceFromMask(
-    mask=('[#3fffffff ]', ), ), datumPlane=
-    mdb.models['Concrete_beam_4_cantilever_B'].rootAssembly.datums[67])
-mdb.models['Concrete_beam_4_cantilever_B'].rootAssembly.PartitionCellByDatumPlane(
-    cells=
-    mdb.models['Concrete_beam_4_cantilever_B'].rootAssembly.instances['concrete-dummy-plates-1'].cells.getSequenceFromMask(
-    mask=('[#7fffffff ]', ), ), datumPlane=
-    mdb.models['Concrete_beam_4_cantilever_B'].rootAssembly.datums[68])
-mdb.models['Concrete_beam_4_cantilever_B'].rootAssembly.PartitionCellByDatumPlane(
-    cells=
-    mdb.models['Concrete_beam_4_cantilever_B'].rootAssembly.instances['concrete-dummy-plates-1'].cells.getSequenceFromMask(
-    mask=('[#ffffffff ]', ), ), datumPlane=
-    mdb.models['Concrete_beam_4_cantilever_B'].rootAssembly.datums[69])
 #* Feature creation failed.
 mdb.models['Concrete_beam_4_cantilever_B'].rootAssembly.PartitionCellByDatumPlane(
     cells=
     mdb.models['Concrete_beam_4_cantilever_B'].rootAssembly.instances['concrete-dummy-plates-1'].cells.getSequenceFromMask(
-    mask=('[#ffffffff ]', ), ), datumPlane=
-    mdb.models['Concrete_beam_4_cantilever_B'].rootAssembly.datums[70])
+    mask=('[#ffffffff #1 ]', ), ), datumPlane=
+    mdb.models['Concrete_beam_4_cantilever_B'].rootAssembly.datums[63])
+#* Feature creation failed.
 mdb.models['Concrete_beam_4_cantilever_B'].rootAssembly.PartitionCellByDatumPlane(
     cells=
     mdb.models['Concrete_beam_4_cantilever_B'].rootAssembly.instances['concrete-dummy-plates-1'].cells.getSequenceFromMask(
     mask=('[#ffffffff #1 ]', ), ), datumPlane=
-    mdb.models['Concrete_beam_4_cantilever_B'].rootAssembly.datums[71])
-mdb.models['Concrete_beam_4_cantilever_B'].rootAssembly.PartitionCellByDatumPlane(
-    cells=
-    mdb.models['Concrete_beam_4_cantilever_B'].rootAssembly.instances['concrete-dummy-plates-1'].cells.getSequenceFromMask(
-    mask=('[#ffffffff #3 ]', ), ), datumPlane=
-    mdb.models['Concrete_beam_4_cantilever_B'].rootAssembly.datums[72])
+    mdb.models['Concrete_beam_4_cantilever_B'].rootAssembly.datums[64])
 mdb.models['Concrete_beam_4_cantilever_B'].rootAssembly.PartitionCellByDatumPlane(
     cells=
     mdb.models['Concrete_beam_4_cantilever_B'].rootAssembly.instances['concrete-dummy-plates-1'].cells.getSequenceFromMask(
     mask=('[#ffffffff #7 ]', ), ), datumPlane=
-    mdb.models['Concrete_beam_4_cantilever_B'].rootAssembly.datums[73])
+    mdb.models['Concrete_beam_4_cantilever_B'].rootAssembly.datums[65])
 mdb.models['Concrete_beam_4_cantilever_B'].rootAssembly.PartitionCellByDatumPlane(
     cells=
     mdb.models['Concrete_beam_4_cantilever_B'].rootAssembly.instances['concrete-dummy-plates-1'].cells.getSequenceFromMask(
     mask=('[#ffffffff #f ]', ), ), datumPlane=
-    mdb.models['Concrete_beam_4_cantilever_B'].rootAssembly.datums[74])
-mdb.models['Concrete_beam_4_cantilever_B'].rootAssembly.PartitionCellByDatumPlane(
-    cells=
-    mdb.models['Concrete_beam_4_cantilever_B'].rootAssembly.instances['concrete-dummy-plates-1'].cells.getSequenceFromMask(
-    mask=('[#ffffffff #1f ]', ), ), datumPlane=
-    mdb.models['Concrete_beam_4_cantilever_B'].rootAssembly.datums[75])
+    mdb.models['Concrete_beam_4_cantilever_B'].rootAssembly.datums[66])
 mdb.models['Concrete_beam_4_cantilever_B'].rootAssembly.PartitionCellByDatumPlane(
     cells=
     mdb.models['Concrete_beam_4_cantilever_B'].rootAssembly.instances['concrete-dummy-plates-1'].cells.getSequenceFromMask(
     mask=('[#ffffffff #3f ]', ), ), datumPlane=
+    mdb.models['Concrete_beam_4_cantilever_B'].rootAssembly.datums[67])
+mdb.models['Concrete_beam_4_cantilever_B'].rootAssembly.PartitionCellByDatumPlane(
+    cells=
+    mdb.models['Concrete_beam_4_cantilever_B'].rootAssembly.instances['concrete-dummy-plates-1'].cells.getSequenceFromMask(
+    mask=('[#ffffffff #ff ]', ), ), datumPlane=
+    mdb.models['Concrete_beam_4_cantilever_B'].rootAssembly.datums[68])
+mdb.models['Concrete_beam_4_cantilever_B'].rootAssembly.PartitionCellByDatumPlane(
+    cells=
+    mdb.models['Concrete_beam_4_cantilever_B'].rootAssembly.instances['concrete-dummy-plates-1'].cells.getSequenceFromMask(
+    mask=('[#ffffffff #1ff ]', ), ), datumPlane=
+    mdb.models['Concrete_beam_4_cantilever_B'].rootAssembly.datums[69])
+mdb.models['Concrete_beam_4_cantilever_B'].rootAssembly.PartitionCellByDatumPlane(
+    cells=
+    mdb.models['Concrete_beam_4_cantilever_B'].rootAssembly.instances['concrete-dummy-plates-1'].cells.getSequenceFromMask(
+    mask=('[#ffffffff #7ff ]', ), ), datumPlane=
+    mdb.models['Concrete_beam_4_cantilever_B'].rootAssembly.datums[70])
+mdb.models['Concrete_beam_4_cantilever_B'].rootAssembly.PartitionCellByDatumPlane(
+    cells=
+    mdb.models['Concrete_beam_4_cantilever_B'].rootAssembly.instances['concrete-dummy-plates-1'].cells.getSequenceFromMask(
+    mask=('[#ffffffff #fff ]', ), ), datumPlane=
+    mdb.models['Concrete_beam_4_cantilever_B'].rootAssembly.datums[71])
+#* Feature creation failed.
+mdb.models['Concrete_beam_4_cantilever_B'].rootAssembly.PartitionCellByDatumPlane(
+    cells=
+    mdb.models['Concrete_beam_4_cantilever_B'].rootAssembly.instances['concrete-dummy-plates-1'].cells.getSequenceFromMask(
+    mask=('[#ffffffff #fff ]', ), ), datumPlane=
+    mdb.models['Concrete_beam_4_cantilever_B'].rootAssembly.datums[72])
+mdb.models['Concrete_beam_4_cantilever_B'].rootAssembly.PartitionCellByDatumPlane(
+    cells=
+    mdb.models['Concrete_beam_4_cantilever_B'].rootAssembly.instances['concrete-dummy-plates-1'].cells.getSequenceFromMask(
+    mask=('[#ffffffff #3fff ]', ), ), datumPlane=
+    mdb.models['Concrete_beam_4_cantilever_B'].rootAssembly.datums[73])
+mdb.models['Concrete_beam_4_cantilever_B'].rootAssembly.PartitionCellByDatumPlane(
+    cells=
+    mdb.models['Concrete_beam_4_cantilever_B'].rootAssembly.instances['concrete-dummy-plates-1'].cells.getSequenceFromMask(
+    mask=('[#ffffffff #7fff ]', ), ), datumPlane=
+    mdb.models['Concrete_beam_4_cantilever_B'].rootAssembly.datums[74])
+mdb.models['Concrete_beam_4_cantilever_B'].rootAssembly.PartitionCellByDatumPlane(
+    cells=
+    mdb.models['Concrete_beam_4_cantilever_B'].rootAssembly.instances['concrete-dummy-plates-1'].cells.getSequenceFromMask(
+    mask=('[#ffffffff #1ffff ]', ), ), datumPlane=
+    mdb.models['Concrete_beam_4_cantilever_B'].rootAssembly.datums[75])
+mdb.models['Concrete_beam_4_cantilever_B'].rootAssembly.PartitionCellByDatumPlane(
+    cells=
+    mdb.models['Concrete_beam_4_cantilever_B'].rootAssembly.instances['concrete-dummy-plates-1'].cells.getSequenceFromMask(
+    mask=('[#ffffffff #7ffff ]', ), ), datumPlane=
     mdb.models['Concrete_beam_4_cantilever_B'].rootAssembly.datums[76])
+mdb.models['Concrete_beam_4_cantilever_B'].rootAssembly.PartitionCellByDatumPlane(
+    cells=
+    mdb.models['Concrete_beam_4_cantilever_B'].rootAssembly.instances['concrete-dummy-plates-1'].cells.getSequenceFromMask(
+    mask=('[#ffffffff #1fffff ]', ), ), datumPlane=
+    mdb.models['Concrete_beam_4_cantilever_B'].rootAssembly.datums[77])
+mdb.models['Concrete_beam_4_cantilever_B'].rootAssembly.PartitionCellByDatumPlane(
+    cells=
+    mdb.models['Concrete_beam_4_cantilever_B'].rootAssembly.instances['concrete-dummy-plates-1'].cells.getSequenceFromMask(
+    mask=('[#ffffffff #7fffff ]', ), ), datumPlane=
+    mdb.models['Concrete_beam_4_cantilever_B'].rootAssembly.datums[78])
 mdb.models['Concrete_beam_4_cantilever_B'].rootAssembly.Set(cells=(), edges=
     mdb.models['Concrete_beam_4_cantilever_B'].rootAssembly.instances['reinforcement-0'].edges.getSequenceFromMask(
     mask=('[#1 ]', ), ), name='m_reinforcement-0')
 mdb.models['Concrete_beam_4_cantilever_B'].rootAssembly.Set(cells=
     mdb.models['Concrete_beam_4_cantilever_B'].rootAssembly.instances['concrete-dummy-plates-1'].cells.getSequenceFromMask(
-    mask=('[#ffffffff #ff ]', ), ), edges=
+    mask=('[#ffffffff #3ffffff ]', ), ), edges=
     mdb.models['Concrete_beam_4_cantilever_B'].rootAssembly.instances['concrete-dummy-plates-1'].edges.getSequenceFromMask(
-    mask=('[#ffffffff:19 #ffff ]', ), ), name='s_concrete-dummy-plates-1')
+    mask=('[#ffffffff:24 #f ]', ), ), name='s_concrete-dummy-plates-1')
 mdb.models['Concrete_beam_4_cantilever_B'].EmbeddedRegion(absoluteTolerance=0.0
     , embeddedRegion=
     mdb.models['Concrete_beam_4_cantilever_B'].rootAssembly.sets['m_reinforcement-0']
@@ -629,9 +642,60 @@ mdb.models['Concrete_beam_4_cantilever_B'].MultipointConstraint(controlPoint=
     mdb.models['Concrete_beam_4_cantilever_B'].rootAssembly.sets['s_mpc_beam_RP-2']
     , userMode=DOF_MODE_MPC, userType=0)
 mdb.models['Concrete_beam_4_cantilever_B'].rootAssembly.Set(name=
-    'm_mpc_beam_RP-3', referencePoints=(
-    mdb.models['Concrete_beam_4_cantilever_B'].rootAssembly.referencePoints[5], 
+    'm_mpc_beam_RP-5', referencePoints=(
+    mdb.models['Concrete_beam_4_cantilever_B'].rootAssembly.referencePoints[9], 
     ))
+mdb.models['Concrete_beam_4_cantilever_B'].rootAssembly.Set(faces=(
+    mdb.models['Concrete_beam_4_cantilever_B'].rootAssembly.instances['concrete-dummy-plates-1'].faces.getSequenceFromMask(
+    mask=('[#0:8 #4000 ]', ), ), ), name='s_mpc_beam_RP-5')
+mdb.models['Concrete_beam_4_cantilever_B'].MultipointConstraint(controlPoint=
+    mdb.models['Concrete_beam_4_cantilever_B'].rootAssembly.sets['m_mpc_beam_RP-5']
+    , csys=None, mpcType=BEAM_MPC, name='mpc_beam_RP-5', surface=
+    mdb.models['Concrete_beam_4_cantilever_B'].rootAssembly.sets['s_mpc_beam_RP-5']
+    , userMode=DOF_MODE_MPC, userType=0)
+mdb.models['Concrete_beam_4_cantilever_B'].rootAssembly.Set(name=
+    'm_mpc_beam_RP-6', referencePoints=(
+    mdb.models['Concrete_beam_4_cantilever_B'].rootAssembly.referencePoints[11], 
+    ))
+mdb.models['Concrete_beam_4_cantilever_B'].rootAssembly.Set(faces=(
+    mdb.models['Concrete_beam_4_cantilever_B'].rootAssembly.instances['concrete-dummy-plates-1'].faces.getSequenceFromMask(
+    mask=('[#0:8 #10000000 ]', ), ), ), name='s_mpc_beam_RP-6')
+mdb.models['Concrete_beam_4_cantilever_B'].MultipointConstraint(controlPoint=
+    mdb.models['Concrete_beam_4_cantilever_B'].rootAssembly.sets['m_mpc_beam_RP-6']
+    , csys=None, mpcType=BEAM_MPC, name='mpc_beam_RP-6', surface=
+    mdb.models['Concrete_beam_4_cantilever_B'].rootAssembly.sets['s_mpc_beam_RP-6']
+    , userMode=DOF_MODE_MPC, userType=0)
+mdb.models['Concrete_beam_4_cantilever_B'].rootAssembly.Set(name='bcName_RP-1', 
+    referencePoints=(
+    mdb.models['Concrete_beam_4_cantilever_B'].rootAssembly.referencePoints[1], 
+    ))
+mdb.models['Concrete_beam_4_cantilever_B'].DisplacementBC(amplitude=UNSET, 
+    createStepName='Initial', distributionType=UNIFORM, fieldName='', 
+    localCsys=None, name='hinge_RP-1', region=
+    mdb.models['Concrete_beam_4_cantilever_B'].rootAssembly.sets['bcName_RP-1']
+    , u1=SET, u2=SET, u3=SET, ur1=SET, ur2=UNSET, ur3=UNSET)
+mdb.models['Concrete_beam_4_cantilever_B'].rootAssembly.Set(name='bcName_RP-5', 
+    referencePoints=(
+    mdb.models['Concrete_beam_4_cantilever_B'].rootAssembly.referencePoints[9], 
+    ))
+mdb.models['Concrete_beam_4_cantilever_B'].DisplacementBC(amplitude=UNSET, 
+    createStepName='Initial', distributionType=UNIFORM, fieldName='', 
+    localCsys=None, name='roller_RP-5', region=
+    mdb.models['Concrete_beam_4_cantilever_B'].rootAssembly.sets['bcName_RP-5']
+    , u1=UNSET, u2=SET, u3=SET, ur1=SET, ur2=UNSET, ur3=UNSET)
+mdb.models['Concrete_beam_4_cantilever_B'].StaticStep(initialInc=0.01, maxInc=1
+    , minInc=1e-06, name='load_disp', nlgeom=OFF, previous='Initial')
+mdb.models['Concrete_beam_4_cantilever_B'].steps['load_disp'].setValues(
+    maxNumInc=1000000)
+mdb.models['Concrete_beam_4_cantilever_B'].rootAssembly.Set(name=
+    'load_disp_RP-4', referencePoints=(
+    mdb.models['Concrete_beam_4_cantilever_B'].rootAssembly.referencePoints[7], 
+    ))
+mdb.models['Concrete_beam_4_cantilever_B'].DisplacementBC(amplitude=UNSET, 
+    createStepName='load_disp', distributionType=UNIFORM, fieldName='', 
+    localCsys=None, name='load_disp_RP-4', region=
+    mdb.models['Concrete_beam_4_cantilever_B'].rootAssembly.sets['load_disp_RP-4']
+    , u1=SET, u2=SET, u3=-30, ur1=SET, ur2=UNSET, ur3=SET)
 mdb.models['Concrete_beam_4_cantilever_B'].rootAssembly.seedPartInstance(
     deviationFactor=0.1, minSizeFactor=0.1, regions=(
     mdb.models['Concrete_beam_4_cantilever_B'].rootAssembly.instances['reinforcement-0'], 
@@ -643,21 +707,14 @@ mdb.models['Concrete_beam_4_cantilever_B'].rootAssembly.seedPartInstance(
 mdb.models['Concrete_beam_4_cantilever_B'].rootAssembly.setMeshControls(
     elemShape=TET, regions=
     mdb.models['Concrete_beam_4_cantilever_B'].rootAssembly.instances['concrete-dummy-plates-1'].cells.getSequenceFromMask(
-    mask=('[#ffffffff #ff ]', ), ), technique=FREE)
+    mask=('[#ffffffff #3ffffff ]', ), ), technique=FREE)
 mdb.models['Concrete_beam_4_cantilever_B'].rootAssembly.setElementType(
     elemTypes=(ElemType(elemCode=C3D20R, elemLibrary=STANDARD), ), regions=(
     mdb.models['Concrete_beam_4_cantilever_B'].rootAssembly.instances['concrete-dummy-plates-1'].cells.getSequenceFromMask(
-    mask=('[#ffffffff #ff ]', ), ), ))
+    mask=('[#ffffffff #3ffffff ]', ), ), ))
 mdb.models['Concrete_beam_4_cantilever_B'].rootAssembly.generateMesh(regions=(
     mdb.models['Concrete_beam_4_cantilever_B'].rootAssembly.instances['reinforcement-0'], 
     ))
 mdb.models['Concrete_beam_4_cantilever_B'].rootAssembly.generateMesh(regions=(
     mdb.models['Concrete_beam_4_cantilever_B'].rootAssembly.instances['concrete-dummy-plates-1'], 
     ))
-mdb.models['Concrete_beam_4_cantilever_B'].rootAssembly.deleteMesh(regions=(
-    mdb.models['Concrete_beam_4_cantilever_B'].rootAssembly.instances['concrete-dummy-plates-1'], 
-    ))
-mdb.models['Concrete_beam_4_cantilever_B'].rootAssembly.seedPartInstance(
-    deviationFactor=0.1, minSizeFactor=0.1, regions=(
-    mdb.models['Concrete_beam_4_cantilever_B'].rootAssembly.instances['concrete-dummy-plates-1'], 
-    ), size=2.0)

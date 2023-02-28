@@ -705,24 +705,19 @@ mdb.models['Concrete_beam_4_cantilever_B'].rootAssembly.generateMesh(regions=(
 mdb.models['Concrete_beam_4_cantilever_B'].rootAssembly.generateMesh(regions=(
     mdb.models['Concrete_beam_4_cantilever_B'].rootAssembly.instances['concrete-dummy-plates-1'], 
     ))
+mdb.models['Concrete_beam_4_cantilever_B'].rootAssembly.regenerate()
+mdb.Job(atTime=None, contactPrint=OFF, description='', echoPrint=OFF, 
+    explicitPrecision=SINGLE, getMemoryFromAnalysis=True, historyPrint=OFF, 
+    memory=90, memoryUnits=PERCENTAGE, model='Concrete_beam_4_cantilever_B', 
+    modelPrint=OFF, multiprocessingMode=DEFAULT, name=
+    'Concrete_beam_4_cantilever_B', nodalOutputPrecision=SINGLE, numCpus=4, 
+    numDomains=4, numGPUs=0, queue=None, resultsFormat=ODB, scratch='', type=
+    ANALYSIS, userSubroutine='', waitHours=0, waitMinutes=0)
+mdb.models['Concrete_beam_4_cantilever_B'].rootAssembly.deleteMesh(regions=(
+    mdb.models['Concrete_beam_4_cantilever_B'].rootAssembly.instances['reinforcement-0'], 
+    ))
 mdb.models['Concrete_beam_4_cantilever_B'].rootAssembly.deleteMesh(regions=(
     mdb.models['Concrete_beam_4_cantilever_B'].rootAssembly.instances['concrete-dummy-plates-1'], 
     ))
-del mdb.models['Concrete_beam_4_cantilever_B']
-mdb.Model(name='Concrete_beam_4_cantilever_B')
-del mdb.models['Model-1']
-from part import *
-from material import *
-from section import *
-from assembly import *
-from step import *
-from interaction import *
-from load import *
-from mesh import *
-from optimization import *
-from job import *
-from sketch import *
-from visualization import *
-from connectorBehavior import *
-mdb.saveAs(pathName='C:/temp/GitHub_ch/abqhelpers/samples/4_P_cantilever_Concrete_Beam/abaqu.cae')
-# Save by ac134018 on 2023_02_28-10.37.10; build 2023 2022_09_28-20.11.55 183150
+# Save by ac134018 on 2023_02_28-10.59.21; build 2023 2022_09_28-20.11.55 183150
+# Save by ac134018 on 2023_02_28-11.00.06; build 2023 2022_09_28-20.11.55 183150

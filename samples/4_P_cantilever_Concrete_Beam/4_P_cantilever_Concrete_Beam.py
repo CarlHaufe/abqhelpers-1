@@ -181,6 +181,8 @@ for ele in load_plates:
     abq_parts.create_Set_All_Cells(model, ele, ele)
 for ele in support_plates:
     abq_parts.create_Set_All_Cells(model, ele, ele)
+for ele in load_traverse:
+    abq_parts.create_Set_All_Cells(model, ele, ele)
 
 # Create Sets - linear elements
 for ele in reinforcement:
@@ -215,6 +217,8 @@ for ele in load_plates:
     abq_property.assign_section(model, ele, ele, 'section-stiff')
 for ele in support_plates:
     abq_property.assign_section(model, ele, ele, 'section-stiff')
+for ele in load_traverse:
+    abq_property.assign_section(model, ele, ele, 'section-stiff')
 for ele in reinforcement:
     abq_property.assign_section(model, ele, ele, 'section-reinforcement')
 
@@ -231,11 +235,14 @@ concrete_beams_asm = []
 load_plates_asm = []
 support_plates_asm = []
 reinforcement_asm = []
+load_traverse_asm = []
 
 # Create Assembly
 for ele in concrete_beam:
     concrete_beams_asm.append(abq_assembly.create_Assembly(model, ele, ele))
 for ele in load_plates:
+    load_plates_asm.append(abq_assembly.create_Assembly(model, ele, ele))
+for ele in load_traverse:
     load_plates_asm.append(abq_assembly.create_Assembly(model, ele, ele))
 for ele in support_plates:
     support_plates_asm.append(abq_assembly.create_Assembly(model, ele, ele))
@@ -340,4 +347,4 @@ abq_job.create_job(model, modelName, 4)
 # abq_job.submit_data_check('Concrete_beam_4_P_B')
 
 # Save abaqus model
-mdb.saveAs(modelName)
+# mdb.saveAs(modelName)

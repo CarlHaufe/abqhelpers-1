@@ -2,13 +2,12 @@
 #
 # Abaqus/CAE Release 2023 replay file
 # Internal Version: 2022_09_28-20.11.55 183150
-# Run by ac134018 on Mon Feb 27 17:33:55 2023
+# Run by ac134018 on Tue Feb 28 11:03:47 2023
 #
 
 # from driverUtils import executeOnCaeGraphicsStartup
 # executeOnCaeGraphicsStartup()
 #: Executing "onCaeGraphicsStartup()" in the site directory ...
-#: Warning: Permission was denied for "abaqus.rpy"; "abaqus.rpy.6" will be used for this session's replay file.
 from abaqus import *
 from abaqusConstants import *
 session.Viewport(name='Viewport: 1', origin=(0.0, 0.0), width=176.490097045898, 
@@ -104,3 +103,49 @@ execfile('4_P_cantilever_Concrete_Beam.py', __main__.__dict__)
 #: Partitioning failed for instance: concrete-dummy-plates-1
 p = mdb.models['Concrete_beam_4_cantilever_B'].parts['concrete-dummy-plates']
 session.viewports['Viewport: 1'].setValues(displayedObject=p)
+a = mdb.models['Concrete_beam_4_cantilever_B'].rootAssembly
+session.viewports['Viewport: 1'].setValues(displayedObject=a)
+session.viewports['Viewport: 1'].assemblyDisplay.setValues(
+    optimizationTasks=OFF, geometricRestrictions=OFF, stopConditions=OFF)
+session.viewports['Viewport: 1'].assemblyDisplay.setValues(mesh=ON)
+session.viewports['Viewport: 1'].assemblyDisplay.meshOptions.setValues(
+    meshTechnique=ON)
+session.viewports['Viewport: 1'].assemblyDisplay.setValues(mesh=OFF)
+session.viewports['Viewport: 1'].assemblyDisplay.meshOptions.setValues(
+    meshTechnique=OFF)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=2201.63, 
+    farPlane=3092.35, width=1647.49, height=577.51, cameraPosition=(-191.621, 
+    362.762, 2596.99), cameraUpVector=(0.541701, 0.791679, -0.282496), 
+    cameraTarget=(652.685, 14.5706, 72.7443))
+session.viewports['Viewport: 1'].view.setValues(nearPlane=2206.14, 
+    farPlane=3118.53, width=1650.87, height=578.693, cameraPosition=(-212.004, 
+    -1154.02, 2321.98), cameraUpVector=(-0.049424, 0.992851, 0.108651), 
+    cameraTarget=(652.973, 35.9973, 76.6293))
+session.viewports['Viewport: 1'].view.setValues(nearPlane=2205.84, 
+    farPlane=3118.84, width=1650.64, height=578.614, cameraPosition=(-212.004, 
+    -1154.02, 2321.98), cameraUpVector=(0.336009, 0.916588, 0.216713), 
+    cameraTarget=(652.973, 35.9973, 76.6293))
+session.viewports['Viewport: 1'].view.setValues(nearPlane=2133.09, 
+    farPlane=3186.93, width=1596.2, height=559.531, cameraPosition=(-603.459, 
+    -1810.23, 1562.94), cameraUpVector=(0.179055, 0.80897, 0.559917), 
+    cameraTarget=(656.215, 41.4312, 82.9145))
+session.viewports['Viewport: 1'].view.setValues(nearPlane=2086.56, 
+    farPlane=3223.12, width=1561.38, height=547.326, cameraPosition=(-909.756, 
+    -1969.79, 921.816), cameraUpVector=(0.306984, 0.531934, 0.789181), 
+    cameraTarget=(659.022, 42.8934, 88.7896))
+session.viewports['Viewport: 1'].view.setValues(nearPlane=2191.48, 
+    farPlane=3118.2, width=395.145, height=138.514, viewOffsetX=-98.5256, 
+    viewOffsetY=-2.5909)
+session.viewports['Viewport: 1'].assemblyDisplay.setValues(step='load_disp')
+session.viewports['Viewport: 1'].assemblyDisplay.setValues(loads=ON, bcs=ON, 
+    predefinedFields=ON, connectors=ON)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=2159.74, 
+    farPlane=3149.94, width=824.958, height=289.18, viewOffsetX=-141.062, 
+    viewOffsetY=38.6328)
+mdb.models['Concrete_beam_4_cantilever_B'].boundaryConditions['load_disp_RP-4'].setValues(
+    u1=0.0, u2=0.0, ur1=0.0, ur3=0.0)
+session.viewports['Viewport: 1'].assemblyDisplay.setValues(step='Initial')
+session.viewports['Viewport: 1'].view.setValues(session.views['Right'])
+session.viewports['Viewport: 1'].view.setValues(session.views['Bottom'])
+session.viewports['Viewport: 1'].view.setProjection(projection=PARALLEL)
+session.viewports['Viewport: 1'].assemblyDisplay.setValues(step='load_disp')

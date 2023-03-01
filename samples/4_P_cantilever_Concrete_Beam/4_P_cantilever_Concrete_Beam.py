@@ -4,7 +4,7 @@
 # Author:       carl.haufe@ilek.uni-stuttgart.de
 # Created:      27.02.2023
 # Execution:    Set work-dir to this file & run script in ABAQUS CAE
-# Status:       In Progress
+# Status:       Works 01.03.2023
 # ------------------------------------------------------------------------------
 # EXECUTION:
 # 1. Open CMD in your working directory

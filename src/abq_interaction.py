@@ -153,3 +153,32 @@ def create_kinematic_coupling(model, referencePoint, controlInstance, slaveInsta
 def create_distributing_coupling(model, referencePoint, controlInstance, slaveInstance, u1=ON, u2=OFF, u3=OFF, ur1=OFF, ur2=OFF, ur3=OFF):
     create_coupling(model, referencePoint, controlInstance, slaveInstance, DISTRIBUTING, u1=u1, u2=u2, u3=u3, ur1=ur1, ur2=ur2, ur3=ur3)
 
+
+
+def create_wire(model, referencePoint, masterInstance, slaveInstance):
+    a = model.rootAssembly
+    
+    # Get point
+    a.WirePolyLine(mergeType=IMPRINT, meshable=
+    OFF, points=((a.referencePoints[5], 
+    a.referencePoints[3]), ))
+
+
+
+# mdb.models['Demo_Slab'].rootAssembly.WirePolyLine(mergeType=IMPRINT, meshable=
+#     OFF, points=((mdb.models['Demo_Slab'].rootAssembly.referencePoints[5], 
+#     mdb.models['Demo_Slab'].rootAssembly.referencePoints[3]), ))
+# mdb.models['Demo_Slab'].rootAssembly.Set(edges=
+#     mdb.models['Demo_Slab'].rootAssembly.edges.getSequenceFromMask(('[#1 ]', ), 
+#     ), name='Wire-1-Set-1')
+# mdb.models['Demo_Slab'].rootAssembly.WirePolyLine(mergeType=IMPRINT, meshable=
+#     OFF, points=((mdb.models['Demo_Slab'].rootAssembly.referencePoints[13], 
+#     mdb.models['Demo_Slab'].rootAssembly.referencePoints[11]), ))
+# mdb.models['Demo_Slab'].rootAssembly.Set(edges=
+#     mdb.models['Demo_Slab'].rootAssembly.edges.getSequenceFromMask(('[#1 ]', ), 
+#     ), name='Wire-2-Set-1')
+# mdb.models['Demo_Slab'].MPCSection(mpcType=LINK_MPC, name='ConnSect-1', 
+#     userMode=DOF_MODE, userType=0)
+# mdb.models['Demo_Slab'].rootAssembly.SectionAssignment(region=Region(
+#     edges=mdb.models['Demo_Slab'].rootAssembly.edges.getSequenceFromMask(mask=(
+#     '[#2 ]', ), )), sectionName='ConnSect-1')

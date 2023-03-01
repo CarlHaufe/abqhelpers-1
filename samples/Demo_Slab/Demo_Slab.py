@@ -9,13 +9,13 @@
 # EXECUTION:
 # 1. Open CMD in your working directory
 # 2. Run script in ABAQUS CAE
-# abaqus cae script=4_P_cantilever_Concrete_Beam.py
+# abaqus cae script=Demo_Slab.py
 #
 # TAIL LOGS:
 # 1. Open CMD in your working directory
 # 2. Use powershell to tail logs
-# powershell Get-Content -Path Concrete_beam_4_P_B.dat -WAIT
-# powershell Get-Content -Path Concrete_beam_4_P_B.msg -WAIT
+# powershell Get-Content -Path Demo_Slab.dat -WAIT
+# powershell Get-Content -Path Demo_Slab.msg -WAIT
 # ------------------------------------------------------------------------------
 # Libraries
 # ------------------------------------------------------------------------------
@@ -111,7 +111,7 @@ except:
 # Model
 # ----------------
 
-modelName = 'Concrete_beam_4_cantilever_B'
+modelName = 'Demo_Slab'
 
 # Delete to restart model
 try:
@@ -141,7 +141,7 @@ load_plates = abq_parts.import_3_d_parts(model, os.path.join(
 load_traverse = abq_parts.import_3_d_parts(model, os.path.join(
     parts_path, 'load_traverse.sat'))
 support_plates = abq_parts.import_3_d_parts(model, os.path.join(
-    parts_path, 'support_plate.sat'), bodyNum=2, combine=False, mergeSolidRegions=False)
+    parts_path, 'support_plate.sat'), bodyNum=3, combine=False, mergeSolidRegions=False)
 reinforcement = abq_parts.import_3_d_parts(model, os.path.join(
     parts_path, 'reinforcement.sat'))
 
@@ -321,18 +321,19 @@ for referencePoint in referencePoints:
 # ----------------
 
 abq_mesh.seed_all_active_instances(
-    model, size=4.0, deviationFactor=0.1, minSizeFactor=0.1)
+    model, size=10.0, deviationFactor=0.1, minSizeFactor=0.1)
 
 
 # a.setElementType(elemTypes=
 # (ElemType(elemCode=C3D8R, elemLibrary=STANDARD),
+# (ElemType(elemCode=C3D20R, elemLibrary=STANDARD),
 # ElemType(elemCode=C3D6, elemLibrary=STANDARD),
 # ElemType(elemCode=C3D4, elemLibrary=STANDARD)), ...
-elemType1 = mesh.ElemType(elemCode=C3D8R)
+elemType1 = mesh.ElemType(elemCode=C3D20R)
 elemTypes = (elemType1,)
 
 abq_mesh.assign_mesh_control_all_active_instances(
-    model, elemTypes, elemShape=HEX, technique=STRUCTURED)
+    model, elemTypes, elemShape=TET, technique=FREE)
 
 abq_mesh.generate_mesh_all_active_instances(model)
 

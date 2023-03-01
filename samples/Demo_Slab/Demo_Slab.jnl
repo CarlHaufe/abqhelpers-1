@@ -1,0 +1,673 @@
+# -*- coding: mbcs -*-
+from part import *
+from material import *
+from section import *
+from assembly import *
+from step import *
+from interaction import *
+from load import *
+from mesh import *
+from optimization import *
+from job import *
+from sketch import *
+from visualization import *
+from connectorBehavior import *
+del mdb.models['Demo_Slab']
+mdb.Model(name='Demo_Slab')
+del mdb.models['Model-1']
+mdb.openAcis(
+    'C:\\temp\\GitHub_ch\\abqhelpers\\samples\\Demo_Slab\\geometry\\parts\\concrete_beam.sat'
+    , scaleFromFile=OFF)
+mdb.models['Demo_Slab'].PartFromGeometryFile(combine=True, dimensionality=
+    THREE_D, geometryFile=mdb.acis, mergeSolidRegions=True, name=
+    'concrete_beam-0', type=DEFORMABLE_BODY)
+mdb.openAcis(
+    'C:\\temp\\GitHub_ch\\abqhelpers\\samples\\Demo_Slab\\geometry\\parts\\load_plate.sat'
+    , scaleFromFile=OFF)
+mdb.models['Demo_Slab'].PartFromGeometryFile(combine=False, dimensionality=
+    THREE_D, geometryFile=mdb.acis, mergeSolidRegions=False, name=
+    'load_plate-0', type=DEFORMABLE_BODY)
+mdb.models['Demo_Slab'].PartFromGeometryFile(bodyNum=2, combine=False, 
+    dimensionality=THREE_D, geometryFile=mdb.acis, mergeSolidRegions=False, 
+    name='load_plate-1', type=DEFORMABLE_BODY)
+mdb.openAcis(
+    'C:\\temp\\GitHub_ch\\abqhelpers\\samples\\Demo_Slab\\geometry\\parts\\load_traverse.sat'
+    , scaleFromFile=OFF)
+mdb.models['Demo_Slab'].PartFromGeometryFile(combine=True, dimensionality=
+    THREE_D, geometryFile=mdb.acis, mergeSolidRegions=True, name=
+    'load_traverse-0', type=DEFORMABLE_BODY)
+mdb.openAcis(
+    'C:\\temp\\GitHub_ch\\abqhelpers\\samples\\Demo_Slab\\geometry\\parts\\support_plate.sat'
+    , scaleFromFile=OFF)
+mdb.models['Demo_Slab'].PartFromGeometryFile(combine=False, dimensionality=
+    THREE_D, geometryFile=mdb.acis, mergeSolidRegions=False, name=
+    'support_plate-0', type=DEFORMABLE_BODY)
+mdb.models['Demo_Slab'].PartFromGeometryFile(bodyNum=2, combine=False, 
+    dimensionality=THREE_D, geometryFile=mdb.acis, mergeSolidRegions=False, 
+    name='support_plate-1', type=DEFORMABLE_BODY)
+mdb.models['Demo_Slab'].PartFromGeometryFile(bodyNum=3, combine=False, 
+    dimensionality=THREE_D, geometryFile=mdb.acis, mergeSolidRegions=False, 
+    name='support_plate-2', type=DEFORMABLE_BODY)
+mdb.openAcis(
+    'C:\\temp\\GitHub_ch\\abqhelpers\\samples\\Demo_Slab\\geometry\\parts\\reinforcement.sat'
+    , scaleFromFile=OFF)
+mdb.models['Demo_Slab'].PartFromGeometryFile(combine=True, dimensionality=
+    THREE_D, geometryFile=mdb.acis, mergeSolidRegions=True, name=
+    'reinforcement-0', type=DEFORMABLE_BODY)
+mdb.models['Demo_Slab'].rootAssembly.ReferencePoint(point=(50.0, 50.0, -10.0))
+mdb.models['Demo_Slab'].rootAssembly.Set(name='RP-1', referencePoints=(
+    mdb.models['Demo_Slab'].rootAssembly.referencePoints[1], ))
+mdb.models['Demo_Slab'].rootAssembly.ReferencePoint(point=(450.0, 50.0, 110.0))
+mdb.models['Demo_Slab'].rootAssembly.Set(name='RP-2', referencePoints=(
+    mdb.models['Demo_Slab'].rootAssembly.referencePoints[3], ))
+mdb.models['Demo_Slab'].rootAssembly.ReferencePoint(point=(450.0, 50.0, 150.0))
+mdb.models['Demo_Slab'].rootAssembly.Set(name='RP-3', referencePoints=(
+    mdb.models['Demo_Slab'].rootAssembly.referencePoints[5], ))
+mdb.models['Demo_Slab'].rootAssembly.ReferencePoint(point=(849.98822658629, 
+    50.0, 190.0))
+mdb.models['Demo_Slab'].rootAssembly.Set(name='RP-4', referencePoints=(
+    mdb.models['Demo_Slab'].rootAssembly.referencePoints[7], ))
+mdb.models['Demo_Slab'].rootAssembly.ReferencePoint(point=(850.0, 50.0, -10.0))
+mdb.models['Demo_Slab'].rootAssembly.Set(name='RP-5', referencePoints=(
+    mdb.models['Demo_Slab'].rootAssembly.referencePoints[9], ))
+mdb.models['Demo_Slab'].rootAssembly.ReferencePoint(point=(1250.0, 50.0, 
+    110.0))
+mdb.models['Demo_Slab'].rootAssembly.Set(name='RP-6', referencePoints=(
+    mdb.models['Demo_Slab'].rootAssembly.referencePoints[11], ))
+mdb.models['Demo_Slab'].rootAssembly.ReferencePoint(point=(1250.0, 50.0, 
+    150.0))
+mdb.models['Demo_Slab'].rootAssembly.Set(name='RP-7', referencePoints=(
+    mdb.models['Demo_Slab'].rootAssembly.referencePoints[13], ))
+mdb.models['Demo_Slab'].rootAssembly.ReferencePoint(point=(1650.0, 50.0, 
+    -10.0))
+mdb.models['Demo_Slab'].rootAssembly.Set(name='RP-8', referencePoints=(
+    mdb.models['Demo_Slab'].rootAssembly.referencePoints[15], ))
+mdb.models['Demo_Slab'].parts['concrete_beam-0'].Set(cells=
+    mdb.models['Demo_Slab'].parts['concrete_beam-0'].cells.getSequenceFromMask(
+    mask=('[#1 ]', ), ), name='concrete_beam-0')
+mdb.models['Demo_Slab'].parts['load_plate-0'].Set(cells=
+    mdb.models['Demo_Slab'].parts['load_plate-0'].cells.getSequenceFromMask(
+    mask=('[#1 ]', ), ), name='load_plate-0')
+mdb.models['Demo_Slab'].parts['load_plate-1'].Set(cells=
+    mdb.models['Demo_Slab'].parts['load_plate-1'].cells.getSequenceFromMask(
+    mask=('[#1 ]', ), ), name='load_plate-1')
+mdb.models['Demo_Slab'].parts['support_plate-0'].Set(cells=
+    mdb.models['Demo_Slab'].parts['support_plate-0'].cells.getSequenceFromMask(
+    mask=('[#1 ]', ), ), name='support_plate-0')
+mdb.models['Demo_Slab'].parts['support_plate-1'].Set(cells=
+    mdb.models['Demo_Slab'].parts['support_plate-1'].cells.getSequenceFromMask(
+    mask=('[#1 ]', ), ), name='support_plate-1')
+mdb.models['Demo_Slab'].parts['support_plate-2'].Set(cells=
+    mdb.models['Demo_Slab'].parts['support_plate-2'].cells.getSequenceFromMask(
+    mask=('[#1 ]', ), ), name='support_plate-2')
+mdb.models['Demo_Slab'].parts['load_traverse-0'].Set(cells=
+    mdb.models['Demo_Slab'].parts['load_traverse-0'].cells.getSequenceFromMask(
+    mask=('[#1 ]', ), ), name='load_traverse-0')
+mdb.models['Demo_Slab'].parts['reinforcement-0'].Set(edges=
+    mdb.models['Demo_Slab'].parts['reinforcement-0'].edges.getSequenceFromMask(
+    mask=('[#3 ]', ), ), name='reinforcement-0')
+mdb.models['Demo_Slab'].Material(name='concrete_cdp_C50_60')
+mdb.models['Demo_Slab'].materials['concrete_cdp_C50_60'].setValues(description=
+    '')
+mdb.models['Demo_Slab'].materials['concrete_cdp_C50_60'].Elastic(dependencies=0
+    , moduli=LONG_TERM, noCompression=OFF, noTension=OFF, table=((37000.0, 
+    0.2), ), temperatureDependency=OFF, type=ISOTROPIC)
+mdb.models['Demo_Slab'].materials['concrete_cdp_C50_60'].Density(dependencies=0
+    , distributionType=UNIFORM, fieldName='', table=((2.3e-09, ), ), 
+    temperatureDependency=OFF)
+mdb.models['Demo_Slab'].materials['concrete_cdp_C50_60'].ConcreteDamagedPlasticity(
+    dependencies=0, table=((36.0, 0.1, 1.16, 0.667, 0.001), ), 
+    temperatureDependency=OFF)
+mdb.models['Demo_Slab'].materials['concrete_cdp_C50_60'].concreteDamagedPlasticity.ConcreteCompressionHardening(
+    dependencies=0, rate=OFF, table=((18.56, 0.0), (46.4, 0.00089), (46.4, 
+    0.0035), (4.64, 0.004)), temperatureDependency=OFF)
+mdb.models['Demo_Slab'].materials['concrete_cdp_C50_60'].concreteDamagedPlasticity.ConcreteTensionStiffening(
+    dependencies=0, rate=OFF, table=((3.16, 0.0), (0.316, 0.0162), (0.0316, 
+    0.0695)), temperatureDependency=OFF, type=DISPLACEMENT)
+mdb.models['Demo_Slab'].materials['concrete_cdp_C50_60'].setValues(
+    materialIdentifier='')
+mdb.models['Demo_Slab'].Material(name='support_stiff')
+mdb.models['Demo_Slab'].materials['support_stiff'].setValues(
+    materialIdentifier='')
+mdb.models['Demo_Slab'].materials['support_stiff'].setValues(description='')
+mdb.models['Demo_Slab'].materials['support_stiff'].Elastic(dependencies=0, 
+    moduli=LONG_TERM, noCompression=OFF, noTension=OFF, table=((99999999999.0, 
+    0.3), ), temperatureDependency=OFF, type=ISOTROPIC)
+mdb.models['Demo_Slab'].Material(name='reinforcement_b500')
+mdb.models['Demo_Slab'].materials['reinforcement_b500'].setValues(description=
+    '')
+mdb.models['Demo_Slab'].materials['reinforcement_b500'].Elastic(dependencies=0, 
+    moduli=LONG_TERM, noCompression=OFF, noTension=OFF, table=((200000.0, 0.3), 
+    ), temperatureDependency=OFF, type=ISOTROPIC)
+mdb.models['Demo_Slab'].materials['reinforcement_b500'].Density(dependencies=0, 
+    distributionType=UNIFORM, fieldName='', table=((7.85e-09, ), ), 
+    temperatureDependency=OFF)
+mdb.models['Demo_Slab'].materials['reinforcement_b500'].Plastic(dataType=
+    HALF_CYCLE, dependencies=0, hardening=ISOTROPIC, numBackstresses=1, rate=
+    OFF, scaleStress=None, staticRecovery=OFF, strainRangeDependency=OFF, 
+    table=((500.0, 0.0), (525.0, 0.0225), (525.0, 0.05)), 
+    temperatureDependency=OFF)
+mdb.models['Demo_Slab'].materials['reinforcement_b500'].setValues(
+    materialIdentifier='')
+mdb.models['Demo_Slab'].HomogeneousSolidSection(material='concrete_cdp_C50_60', 
+    name='section-concrete', thickness=None)
+mdb.models['Demo_Slab'].HomogeneousSolidSection(material='support_stiff', name=
+    'section-stiff', thickness=None)
+mdb.models['Demo_Slab'].CircularProfile(name='circular_d_6', r=6)
+mdb.models['Demo_Slab'].BeamSection(consistentMassMatrix=False, integration=
+    DURING_ANALYSIS, material='reinforcement_b500', name=
+    'section-reinforcement', poissonRatio=0.0, profile='circular_d_6', 
+    temperatureVar=LINEAR)
+mdb.models['Demo_Slab'].parts['concrete_beam-0'].SectionAssignment(offset=0.0, 
+    offsetField='', offsetType=MIDDLE_SURFACE, region=
+    mdb.models['Demo_Slab'].parts['concrete_beam-0'].sets['concrete_beam-0'], 
+    sectionName='section-concrete', thicknessAssignment=FROM_SECTION)
+mdb.models['Demo_Slab'].parts['load_plate-0'].SectionAssignment(offset=0.0, 
+    offsetField='', offsetType=MIDDLE_SURFACE, region=
+    mdb.models['Demo_Slab'].parts['load_plate-0'].sets['load_plate-0'], 
+    sectionName='section-stiff', thicknessAssignment=FROM_SECTION)
+mdb.models['Demo_Slab'].parts['load_plate-1'].SectionAssignment(offset=0.0, 
+    offsetField='', offsetType=MIDDLE_SURFACE, region=
+    mdb.models['Demo_Slab'].parts['load_plate-1'].sets['load_plate-1'], 
+    sectionName='section-stiff', thicknessAssignment=FROM_SECTION)
+mdb.models['Demo_Slab'].parts['support_plate-0'].SectionAssignment(offset=0.0, 
+    offsetField='', offsetType=MIDDLE_SURFACE, region=
+    mdb.models['Demo_Slab'].parts['support_plate-0'].sets['support_plate-0'], 
+    sectionName='section-stiff', thicknessAssignment=FROM_SECTION)
+mdb.models['Demo_Slab'].parts['support_plate-1'].SectionAssignment(offset=0.0, 
+    offsetField='', offsetType=MIDDLE_SURFACE, region=
+    mdb.models['Demo_Slab'].parts['support_plate-1'].sets['support_plate-1'], 
+    sectionName='section-stiff', thicknessAssignment=FROM_SECTION)
+mdb.models['Demo_Slab'].parts['support_plate-2'].SectionAssignment(offset=0.0, 
+    offsetField='', offsetType=MIDDLE_SURFACE, region=
+    mdb.models['Demo_Slab'].parts['support_plate-2'].sets['support_plate-2'], 
+    sectionName='section-stiff', thicknessAssignment=FROM_SECTION)
+mdb.models['Demo_Slab'].parts['load_traverse-0'].SectionAssignment(offset=0.0, 
+    offsetField='', offsetType=MIDDLE_SURFACE, region=
+    mdb.models['Demo_Slab'].parts['load_traverse-0'].sets['load_traverse-0'], 
+    sectionName='section-stiff', thicknessAssignment=FROM_SECTION)
+mdb.models['Demo_Slab'].parts['reinforcement-0'].SectionAssignment(offset=0.0, 
+    offsetField='', offsetType=MIDDLE_SURFACE, region=
+    mdb.models['Demo_Slab'].parts['reinforcement-0'].sets['reinforcement-0'], 
+    sectionName='section-reinforcement', thicknessAssignment=FROM_SECTION)
+mdb.models['Demo_Slab'].parts['reinforcement-0'].assignBeamSectionOrientation(
+    method=N1_COSINES, n1=(0.0, 0.0, -1.0), region=Region(
+    edges=mdb.models['Demo_Slab'].parts['reinforcement-0'].edges.getSequenceFromMask(
+    mask=('[#3 ]', ), )))
+mdb.models['Demo_Slab'].rootAssembly.Instance(dependent=OFF, name=
+    'concrete_beam-0', part=mdb.models['Demo_Slab'].parts['concrete_beam-0'])
+mdb.models['Demo_Slab'].rootAssembly.instances['concrete_beam-0'].translate(
+    vector=(0, 0, 0))
+mdb.models['Demo_Slab'].rootAssembly.Instance(dependent=OFF, name=
+    'load_plate-0', part=mdb.models['Demo_Slab'].parts['load_plate-0'])
+mdb.models['Demo_Slab'].rootAssembly.instances['load_plate-0'].translate(
+    vector=(0, 0, 0))
+mdb.models['Demo_Slab'].rootAssembly.Instance(dependent=OFF, name=
+    'load_plate-1', part=mdb.models['Demo_Slab'].parts['load_plate-1'])
+mdb.models['Demo_Slab'].rootAssembly.instances['load_plate-1'].translate(
+    vector=(0, 0, 0))
+mdb.models['Demo_Slab'].rootAssembly.Instance(dependent=OFF, name=
+    'load_traverse-0', part=mdb.models['Demo_Slab'].parts['load_traverse-0'])
+mdb.models['Demo_Slab'].rootAssembly.instances['load_traverse-0'].translate(
+    vector=(0, 0, 0))
+mdb.models['Demo_Slab'].rootAssembly.Instance(dependent=OFF, name=
+    'support_plate-0', part=mdb.models['Demo_Slab'].parts['support_plate-0'])
+mdb.models['Demo_Slab'].rootAssembly.instances['support_plate-0'].translate(
+    vector=(0, 0, 0))
+mdb.models['Demo_Slab'].rootAssembly.Instance(dependent=OFF, name=
+    'support_plate-1', part=mdb.models['Demo_Slab'].parts['support_plate-1'])
+mdb.models['Demo_Slab'].rootAssembly.instances['support_plate-1'].translate(
+    vector=(0, 0, 0))
+mdb.models['Demo_Slab'].rootAssembly.Instance(dependent=OFF, name=
+    'support_plate-2', part=mdb.models['Demo_Slab'].parts['support_plate-2'])
+mdb.models['Demo_Slab'].rootAssembly.instances['support_plate-2'].translate(
+    vector=(0, 0, 0))
+mdb.models['Demo_Slab'].rootAssembly.Instance(dependent=OFF, name=
+    'reinforcement-0', part=mdb.models['Demo_Slab'].parts['reinforcement-0'])
+mdb.models['Demo_Slab'].rootAssembly.instances['reinforcement-0'].translate(
+    vector=(0, 0, 0))
+mdb.models['Demo_Slab'].rootAssembly.InstanceFromBooleanMerge(domain=GEOMETRY, 
+    instances=
+    [mdb.models['Demo_Slab'].rootAssembly.instances['concrete_beam-0'], 
+    mdb.models['Demo_Slab'].rootAssembly.instances['load_plate-0'], 
+    mdb.models['Demo_Slab'].rootAssembly.instances['load_plate-1'], 
+    mdb.models['Demo_Slab'].rootAssembly.instances['load_traverse-0'], 
+    mdb.models['Demo_Slab'].rootAssembly.instances['support_plate-0'], 
+    mdb.models['Demo_Slab'].rootAssembly.instances['support_plate-1'], 
+    mdb.models['Demo_Slab'].rootAssembly.instances['support_plate-2']], 
+    keepIntersections=ON, name='concrete-dummy-plates', originalInstances=
+    SUPPRESS)
+mdb.models['Demo_Slab'].rootAssembly.makeIndependent(instances=(
+    mdb.models['Demo_Slab'].rootAssembly.instances['concrete-dummy-plates-1'], 
+    ))
+mdb.models['Demo_Slab'].rootAssembly.DatumPlaneByPrincipalPlane(offset=450.0, 
+    principalPlane=YZPLANE)
+mdb.models['Demo_Slab'].rootAssembly.DatumPlaneByPrincipalPlane(offset=50.0, 
+    principalPlane=YZPLANE)
+mdb.models['Demo_Slab'].rootAssembly.DatumPlaneByPrincipalPlane(offset=60.0, 
+    principalPlane=YZPLANE)
+mdb.models['Demo_Slab'].rootAssembly.DatumPlaneByPrincipalPlane(offset=40.0, 
+    principalPlane=YZPLANE)
+mdb.models['Demo_Slab'].rootAssembly.DatumPlaneByPrincipalPlane(offset=1640.0, 
+    principalPlane=YZPLANE)
+mdb.models['Demo_Slab'].rootAssembly.DatumPlaneByPrincipalPlane(offset=1660.0, 
+    principalPlane=YZPLANE)
+mdb.models['Demo_Slab'].rootAssembly.DatumPlaneByPrincipalPlane(offset=1650.0, 
+    principalPlane=YZPLANE)
+mdb.models['Demo_Slab'].rootAssembly.DatumPlaneByPrincipalPlane(offset=750.0, 
+    principalPlane=YZPLANE)
+mdb.models['Demo_Slab'].rootAssembly.DatumPlaneByPrincipalPlane(offset=700.0, 
+    principalPlane=YZPLANE)
+mdb.models['Demo_Slab'].rootAssembly.DatumPlaneByPrincipalPlane(offset=800.0, 
+    principalPlane=YZPLANE)
+mdb.models['Demo_Slab'].rootAssembly.DatumPlaneByPrincipalPlane(offset=500.0, 
+    principalPlane=YZPLANE)
+mdb.models['Demo_Slab'].rootAssembly.DatumPlaneByPrincipalPlane(offset=440.0, 
+    principalPlane=YZPLANE)
+mdb.models['Demo_Slab'].rootAssembly.DatumPlaneByPrincipalPlane(offset=550.0, 
+    principalPlane=YZPLANE)
+mdb.models['Demo_Slab'].rootAssembly.DatumPlaneByPrincipalPlane(offset=600.0, 
+    principalPlane=YZPLANE)
+mdb.models['Demo_Slab'].rootAssembly.DatumPlaneByPrincipalPlane(offset=650.0, 
+    principalPlane=YZPLANE)
+mdb.models['Demo_Slab'].rootAssembly.DatumPlaneByPrincipalPlane(offset=250.0, 
+    principalPlane=YZPLANE)
+mdb.models['Demo_Slab'].rootAssembly.DatumPlaneByPrincipalPlane(offset=200.0, 
+    principalPlane=YZPLANE)
+mdb.models['Demo_Slab'].rootAssembly.DatumPlaneByPrincipalPlane(offset=150.0, 
+    principalPlane=YZPLANE)
+mdb.models['Demo_Slab'].rootAssembly.DatumPlaneByPrincipalPlane(offset=100.0, 
+    principalPlane=YZPLANE)
+mdb.models['Demo_Slab'].rootAssembly.DatumPlaneByPrincipalPlane(offset=400.0, 
+    principalPlane=YZPLANE)
+mdb.models['Demo_Slab'].rootAssembly.DatumPlaneByPrincipalPlane(offset=300.0, 
+    principalPlane=YZPLANE)
+mdb.models['Demo_Slab'].rootAssembly.DatumPlaneByPrincipalPlane(offset=350.0, 
+    principalPlane=YZPLANE)
+mdb.models['Demo_Slab'].rootAssembly.DatumPlaneByPrincipalPlane(offset=460.0, 
+    principalPlane=YZPLANE)
+mdb.models['Demo_Slab'].rootAssembly.DatumPlaneByPrincipalPlane(offset=1050.0, 
+    principalPlane=YZPLANE)
+mdb.models['Demo_Slab'].rootAssembly.DatumPlaneByPrincipalPlane(offset=1000.0, 
+    principalPlane=YZPLANE)
+mdb.models['Demo_Slab'].rootAssembly.DatumPlaneByPrincipalPlane(offset=950.0, 
+    principalPlane=YZPLANE)
+mdb.models['Demo_Slab'].rootAssembly.DatumPlaneByPrincipalPlane(offset=900.0, 
+    principalPlane=YZPLANE)
+mdb.models['Demo_Slab'].rootAssembly.DatumPlaneByPrincipalPlane(offset=1200.0, 
+    principalPlane=YZPLANE)
+mdb.models['Demo_Slab'].rootAssembly.DatumPlaneByPrincipalPlane(offset=1100.0, 
+    principalPlane=YZPLANE)
+mdb.models['Demo_Slab'].rootAssembly.DatumPlaneByPrincipalPlane(offset=1150.0, 
+    principalPlane=YZPLANE)
+mdb.models['Demo_Slab'].rootAssembly.DatumPlaneByPrincipalPlane(offset=1550.0, 
+    principalPlane=YZPLANE)
+mdb.models['Demo_Slab'].rootAssembly.DatumPlaneByPrincipalPlane(offset=1500.0, 
+    principalPlane=YZPLANE)
+mdb.models['Demo_Slab'].rootAssembly.DatumPlaneByPrincipalPlane(offset=1600.0, 
+    principalPlane=YZPLANE)
+mdb.models['Demo_Slab'].rootAssembly.DatumPlaneByPrincipalPlane(offset=850.0, 
+    principalPlane=YZPLANE)
+mdb.models['Demo_Slab'].rootAssembly.DatumPlaneByPrincipalPlane(offset=1300.0, 
+    principalPlane=YZPLANE)
+mdb.models['Demo_Slab'].rootAssembly.DatumPlaneByPrincipalPlane(offset=1350.0, 
+    principalPlane=YZPLANE)
+mdb.models['Demo_Slab'].rootAssembly.DatumPlaneByPrincipalPlane(offset=1400.0, 
+    principalPlane=YZPLANE)
+mdb.models['Demo_Slab'].rootAssembly.DatumPlaneByPrincipalPlane(offset=1450.0, 
+    principalPlane=YZPLANE)
+mdb.models['Demo_Slab'].rootAssembly.DatumPlaneByPrincipalPlane(offset=50.0, 
+    principalPlane=XYPLANE)
+mdb.models['Demo_Slab'].rootAssembly.DatumPlaneByPrincipalPlane(offset=50.0, 
+    principalPlane=XZPLANE)
+mdb.models['Demo_Slab'].rootAssembly.DatumPlaneByPrincipalPlane(offset=860.0, 
+    principalPlane=YZPLANE)
+mdb.models['Demo_Slab'].rootAssembly.DatumPlaneByPrincipalPlane(offset=840.0, 
+    principalPlane=YZPLANE)
+mdb.models['Demo_Slab'].rootAssembly.DatumPlaneByPrincipalPlane(offset=1260.0, 
+    principalPlane=YZPLANE)
+mdb.models['Demo_Slab'].rootAssembly.DatumPlaneByPrincipalPlane(offset=1240.0, 
+    principalPlane=YZPLANE)
+mdb.models['Demo_Slab'].rootAssembly.DatumPlaneByPrincipalPlane(offset=1250.0, 
+    principalPlane=YZPLANE)
+mdb.models['Demo_Slab'].rootAssembly.PartitionCellByDatumPlane(cells=
+    mdb.models['Demo_Slab'].rootAssembly.instances['concrete-dummy-plates-1'].cells.getSequenceFromMask(
+    mask=('[#7f ]', ), ), datumPlane=
+    mdb.models['Demo_Slab'].rootAssembly.datums[35])
+mdb.models['Demo_Slab'].rootAssembly.PartitionCellByDatumPlane(cells=
+    mdb.models['Demo_Slab'].rootAssembly.instances['concrete-dummy-plates-1'].cells.getSequenceFromMask(
+    mask=('[#1ff ]', ), ), datumPlane=
+    mdb.models['Demo_Slab'].rootAssembly.datums[36])
+mdb.models['Demo_Slab'].rootAssembly.PartitionCellByDatumPlane(cells=
+    mdb.models['Demo_Slab'].rootAssembly.instances['concrete-dummy-plates-1'].cells.getSequenceFromMask(
+    mask=('[#7ff ]', ), ), datumPlane=
+    mdb.models['Demo_Slab'].rootAssembly.datums[37])
+mdb.models['Demo_Slab'].rootAssembly.PartitionCellByDatumPlane(cells=
+    mdb.models['Demo_Slab'].rootAssembly.instances['concrete-dummy-plates-1'].cells.getSequenceFromMask(
+    mask=('[#fff ]', ), ), datumPlane=
+    mdb.models['Demo_Slab'].rootAssembly.datums[38])
+mdb.models['Demo_Slab'].rootAssembly.PartitionCellByDatumPlane(cells=
+    mdb.models['Demo_Slab'].rootAssembly.instances['concrete-dummy-plates-1'].cells.getSequenceFromMask(
+    mask=('[#1fff ]', ), ), datumPlane=
+    mdb.models['Demo_Slab'].rootAssembly.datums[39])
+mdb.models['Demo_Slab'].rootAssembly.PartitionCellByDatumPlane(cells=
+    mdb.models['Demo_Slab'].rootAssembly.instances['concrete-dummy-plates-1'].cells.getSequenceFromMask(
+    mask=('[#3fff ]', ), ), datumPlane=
+    mdb.models['Demo_Slab'].rootAssembly.datums[40])
+mdb.models['Demo_Slab'].rootAssembly.PartitionCellByDatumPlane(cells=
+    mdb.models['Demo_Slab'].rootAssembly.instances['concrete-dummy-plates-1'].cells.getSequenceFromMask(
+    mask=('[#7fff ]', ), ), datumPlane=
+    mdb.models['Demo_Slab'].rootAssembly.datums[41])
+mdb.models['Demo_Slab'].rootAssembly.PartitionCellByDatumPlane(cells=
+    mdb.models['Demo_Slab'].rootAssembly.instances['concrete-dummy-plates-1'].cells.getSequenceFromMask(
+    mask=('[#1ffff ]', ), ), datumPlane=
+    mdb.models['Demo_Slab'].rootAssembly.datums[42])
+mdb.models['Demo_Slab'].rootAssembly.PartitionCellByDatumPlane(cells=
+    mdb.models['Demo_Slab'].rootAssembly.instances['concrete-dummy-plates-1'].cells.getSequenceFromMask(
+    mask=('[#7ffff ]', ), ), datumPlane=
+    mdb.models['Demo_Slab'].rootAssembly.datums[43])
+mdb.models['Demo_Slab'].rootAssembly.PartitionCellByDatumPlane(cells=
+    mdb.models['Demo_Slab'].rootAssembly.instances['concrete-dummy-plates-1'].cells.getSequenceFromMask(
+    mask=('[#1fffff ]', ), ), datumPlane=
+    mdb.models['Demo_Slab'].rootAssembly.datums[44])
+mdb.models['Demo_Slab'].rootAssembly.PartitionCellByDatumPlane(cells=
+    mdb.models['Demo_Slab'].rootAssembly.instances['concrete-dummy-plates-1'].cells.getSequenceFromMask(
+    mask=('[#7fffff ]', ), ), datumPlane=
+    mdb.models['Demo_Slab'].rootAssembly.datums[45])
+mdb.models['Demo_Slab'].rootAssembly.PartitionCellByDatumPlane(cells=
+    mdb.models['Demo_Slab'].rootAssembly.instances['concrete-dummy-plates-1'].cells.getSequenceFromMask(
+    mask=('[#1ffffff ]', ), ), datumPlane=
+    mdb.models['Demo_Slab'].rootAssembly.datums[46])
+mdb.models['Demo_Slab'].rootAssembly.PartitionCellByDatumPlane(cells=
+    mdb.models['Demo_Slab'].rootAssembly.instances['concrete-dummy-plates-1'].cells.getSequenceFromMask(
+    mask=('[#3ffffff ]', ), ), datumPlane=
+    mdb.models['Demo_Slab'].rootAssembly.datums[47])
+mdb.models['Demo_Slab'].rootAssembly.PartitionCellByDatumPlane(cells=
+    mdb.models['Demo_Slab'].rootAssembly.instances['concrete-dummy-plates-1'].cells.getSequenceFromMask(
+    mask=('[#fffffff ]', ), ), datumPlane=
+    mdb.models['Demo_Slab'].rootAssembly.datums[48])
+mdb.models['Demo_Slab'].rootAssembly.PartitionCellByDatumPlane(cells=
+    mdb.models['Demo_Slab'].rootAssembly.instances['concrete-dummy-plates-1'].cells.getSequenceFromMask(
+    mask=('[#3fffffff ]', ), ), datumPlane=
+    mdb.models['Demo_Slab'].rootAssembly.datums[49])
+mdb.models['Demo_Slab'].rootAssembly.PartitionCellByDatumPlane(cells=
+    mdb.models['Demo_Slab'].rootAssembly.instances['concrete-dummy-plates-1'].cells.getSequenceFromMask(
+    mask=('[#ffffffff ]', ), ), datumPlane=
+    mdb.models['Demo_Slab'].rootAssembly.datums[50])
+mdb.models['Demo_Slab'].rootAssembly.PartitionCellByDatumPlane(cells=
+    mdb.models['Demo_Slab'].rootAssembly.instances['concrete-dummy-plates-1'].cells.getSequenceFromMask(
+    mask=('[#ffffffff #1 ]', ), ), datumPlane=
+    mdb.models['Demo_Slab'].rootAssembly.datums[51])
+mdb.models['Demo_Slab'].rootAssembly.PartitionCellByDatumPlane(cells=
+    mdb.models['Demo_Slab'].rootAssembly.instances['concrete-dummy-plates-1'].cells.getSequenceFromMask(
+    mask=('[#ffffffff #3 ]', ), ), datumPlane=
+    mdb.models['Demo_Slab'].rootAssembly.datums[52])
+mdb.models['Demo_Slab'].rootAssembly.PartitionCellByDatumPlane(cells=
+    mdb.models['Demo_Slab'].rootAssembly.instances['concrete-dummy-plates-1'].cells.getSequenceFromMask(
+    mask=('[#ffffffff #7 ]', ), ), datumPlane=
+    mdb.models['Demo_Slab'].rootAssembly.datums[53])
+mdb.models['Demo_Slab'].rootAssembly.PartitionCellByDatumPlane(cells=
+    mdb.models['Demo_Slab'].rootAssembly.instances['concrete-dummy-plates-1'].cells.getSequenceFromMask(
+    mask=('[#ffffffff #f ]', ), ), datumPlane=
+    mdb.models['Demo_Slab'].rootAssembly.datums[54])
+mdb.models['Demo_Slab'].rootAssembly.PartitionCellByDatumPlane(cells=
+    mdb.models['Demo_Slab'].rootAssembly.instances['concrete-dummy-plates-1'].cells.getSequenceFromMask(
+    mask=('[#ffffffff #1f ]', ), ), datumPlane=
+    mdb.models['Demo_Slab'].rootAssembly.datums[55])
+mdb.models['Demo_Slab'].rootAssembly.PartitionCellByDatumPlane(cells=
+    mdb.models['Demo_Slab'].rootAssembly.instances['concrete-dummy-plates-1'].cells.getSequenceFromMask(
+    mask=('[#ffffffff #3f ]', ), ), datumPlane=
+    mdb.models['Demo_Slab'].rootAssembly.datums[56])
+mdb.models['Demo_Slab'].rootAssembly.PartitionCellByDatumPlane(cells=
+    mdb.models['Demo_Slab'].rootAssembly.instances['concrete-dummy-plates-1'].cells.getSequenceFromMask(
+    mask=('[#ffffffff #7f ]', ), ), datumPlane=
+    mdb.models['Demo_Slab'].rootAssembly.datums[57])
+mdb.models['Demo_Slab'].rootAssembly.PartitionCellByDatumPlane(cells=
+    mdb.models['Demo_Slab'].rootAssembly.instances['concrete-dummy-plates-1'].cells.getSequenceFromMask(
+    mask=('[#ffffffff #1ff ]', ), ), datumPlane=
+    mdb.models['Demo_Slab'].rootAssembly.datums[58])
+mdb.models['Demo_Slab'].rootAssembly.PartitionCellByDatumPlane(cells=
+    mdb.models['Demo_Slab'].rootAssembly.instances['concrete-dummy-plates-1'].cells.getSequenceFromMask(
+    mask=('[#ffffffff #7ff ]', ), ), datumPlane=
+    mdb.models['Demo_Slab'].rootAssembly.datums[59])
+mdb.models['Demo_Slab'].rootAssembly.PartitionCellByDatumPlane(cells=
+    mdb.models['Demo_Slab'].rootAssembly.instances['concrete-dummy-plates-1'].cells.getSequenceFromMask(
+    mask=('[#ffffffff #1fff ]', ), ), datumPlane=
+    mdb.models['Demo_Slab'].rootAssembly.datums[60])
+mdb.models['Demo_Slab'].rootAssembly.PartitionCellByDatumPlane(cells=
+    mdb.models['Demo_Slab'].rootAssembly.instances['concrete-dummy-plates-1'].cells.getSequenceFromMask(
+    mask=('[#ffffffff #7fff ]', ), ), datumPlane=
+    mdb.models['Demo_Slab'].rootAssembly.datums[61])
+mdb.models['Demo_Slab'].rootAssembly.PartitionCellByDatumPlane(cells=
+    mdb.models['Demo_Slab'].rootAssembly.instances['concrete-dummy-plates-1'].cells.getSequenceFromMask(
+    mask=('[#ffffffff #1ffff ]', ), ), datumPlane=
+    mdb.models['Demo_Slab'].rootAssembly.datums[62])
+mdb.models['Demo_Slab'].rootAssembly.PartitionCellByDatumPlane(cells=
+    mdb.models['Demo_Slab'].rootAssembly.instances['concrete-dummy-plates-1'].cells.getSequenceFromMask(
+    mask=('[#ffffffff #7ffff ]', ), ), datumPlane=
+    mdb.models['Demo_Slab'].rootAssembly.datums[63])
+mdb.models['Demo_Slab'].rootAssembly.PartitionCellByDatumPlane(cells=
+    mdb.models['Demo_Slab'].rootAssembly.instances['concrete-dummy-plates-1'].cells.getSequenceFromMask(
+    mask=('[#ffffffff #1fffff ]', ), ), datumPlane=
+    mdb.models['Demo_Slab'].rootAssembly.datums[64])
+mdb.models['Demo_Slab'].rootAssembly.PartitionCellByDatumPlane(cells=
+    mdb.models['Demo_Slab'].rootAssembly.instances['concrete-dummy-plates-1'].cells.getSequenceFromMask(
+    mask=('[#ffffffff #7fffff ]', ), ), datumPlane=
+    mdb.models['Demo_Slab'].rootAssembly.datums[65])
+mdb.models['Demo_Slab'].rootAssembly.PartitionCellByDatumPlane(cells=
+    mdb.models['Demo_Slab'].rootAssembly.instances['concrete-dummy-plates-1'].cells.getSequenceFromMask(
+    mask=('[#ffffffff #ffffff ]', ), ), datumPlane=
+    mdb.models['Demo_Slab'].rootAssembly.datums[66])
+mdb.models['Demo_Slab'].rootAssembly.PartitionCellByDatumPlane(cells=
+    mdb.models['Demo_Slab'].rootAssembly.instances['concrete-dummy-plates-1'].cells.getSequenceFromMask(
+    mask=('[#ffffffff #1ffffff ]', ), ), datumPlane=
+    mdb.models['Demo_Slab'].rootAssembly.datums[67])
+mdb.models['Demo_Slab'].rootAssembly.PartitionCellByDatumPlane(cells=
+    mdb.models['Demo_Slab'].rootAssembly.instances['concrete-dummy-plates-1'].cells.getSequenceFromMask(
+    mask=('[#ffffffff #3ffffff ]', ), ), datumPlane=
+    mdb.models['Demo_Slab'].rootAssembly.datums[68])
+mdb.models['Demo_Slab'].rootAssembly.PartitionCellByDatumPlane(cells=
+    mdb.models['Demo_Slab'].rootAssembly.instances['concrete-dummy-plates-1'].cells.getSequenceFromMask(
+    mask=('[#ffffffff #1fffffff ]', ), ), datumPlane=
+    mdb.models['Demo_Slab'].rootAssembly.datums[69])
+mdb.models['Demo_Slab'].rootAssembly.PartitionCellByDatumPlane(cells=
+    mdb.models['Demo_Slab'].rootAssembly.instances['concrete-dummy-plates-1'].cells.getSequenceFromMask(
+    mask=('[#ffffffff #3fffffff ]', ), ), datumPlane=
+    mdb.models['Demo_Slab'].rootAssembly.datums[70])
+mdb.models['Demo_Slab'].rootAssembly.PartitionCellByDatumPlane(cells=
+    mdb.models['Demo_Slab'].rootAssembly.instances['concrete-dummy-plates-1'].cells.getSequenceFromMask(
+    mask=('[#ffffffff #7fffffff ]', ), ), datumPlane=
+    mdb.models['Demo_Slab'].rootAssembly.datums[71])
+mdb.models['Demo_Slab'].rootAssembly.PartitionCellByDatumPlane(cells=
+    mdb.models['Demo_Slab'].rootAssembly.instances['concrete-dummy-plates-1'].cells.getSequenceFromMask(
+    mask=('[#ffffffff:2 ]', ), ), datumPlane=
+    mdb.models['Demo_Slab'].rootAssembly.datums[72])
+mdb.models['Demo_Slab'].rootAssembly.PartitionCellByDatumPlane(cells=
+    mdb.models['Demo_Slab'].rootAssembly.instances['concrete-dummy-plates-1'].cells.getSequenceFromMask(
+    mask=('[#ffffffff:2 #1 ]', ), ), datumPlane=
+    mdb.models['Demo_Slab'].rootAssembly.datums[73])
+mdb.models['Demo_Slab'].rootAssembly.PartitionCellByDatumPlane(cells=
+    mdb.models['Demo_Slab'].rootAssembly.instances['concrete-dummy-plates-1'].cells.getSequenceFromMask(
+    mask=('[#ffffffff:3 #ff ]', ), ), datumPlane=
+    mdb.models['Demo_Slab'].rootAssembly.datums[74])
+mdb.models['Demo_Slab'].rootAssembly.PartitionCellByDatumPlane(cells=
+    mdb.models['Demo_Slab'].rootAssembly.instances['concrete-dummy-plates-1'].cells.getSequenceFromMask(
+    mask=('[#ffffffff:6 #ffff ]', ), ), datumPlane=
+    mdb.models['Demo_Slab'].rootAssembly.datums[75])
+mdb.models['Demo_Slab'].rootAssembly.PartitionCellByDatumPlane(cells=
+    mdb.models['Demo_Slab'].rootAssembly.instances['concrete-dummy-plates-1'].cells.getSequenceFromMask(
+    mask=('[#ffffffff:6 #3fffff ]', ), ), datumPlane=
+    mdb.models['Demo_Slab'].rootAssembly.datums[76])
+mdb.models['Demo_Slab'].rootAssembly.PartitionCellByDatumPlane(cells=
+    mdb.models['Demo_Slab'].rootAssembly.instances['concrete-dummy-plates-1'].cells.getSequenceFromMask(
+    mask=('[#ffffffff:6 #fffffff ]', ), ), datumPlane=
+    mdb.models['Demo_Slab'].rootAssembly.datums[77])
+mdb.models['Demo_Slab'].rootAssembly.PartitionCellByDatumPlane(cells=
+    mdb.models['Demo_Slab'].rootAssembly.instances['concrete-dummy-plates-1'].cells.getSequenceFromMask(
+    mask=('[#ffffffff:7 ]', ), ), datumPlane=
+    mdb.models['Demo_Slab'].rootAssembly.datums[78])
+mdb.models['Demo_Slab'].rootAssembly.PartitionCellByDatumPlane(cells=
+    mdb.models['Demo_Slab'].rootAssembly.instances['concrete-dummy-plates-1'].cells.getSequenceFromMask(
+    mask=('[#ffffffff:7 #3f ]', ), ), datumPlane=
+    mdb.models['Demo_Slab'].rootAssembly.datums[79])
+mdb.models['Demo_Slab'].rootAssembly.Set(cells=(), edges=
+    mdb.models['Demo_Slab'].rootAssembly.instances['reinforcement-0'].edges.getSequenceFromMask(
+    mask=('[#3 ]', ), ), name='m_reinforcement-0')
+mdb.models['Demo_Slab'].rootAssembly.Set(cells=
+    mdb.models['Demo_Slab'].rootAssembly.instances['concrete-dummy-plates-1'].cells.getSequenceFromMask(
+    mask=('[#ffffffff:7 #fff ]', ), ), edges=
+    mdb.models['Demo_Slab'].rootAssembly.instances['concrete-dummy-plates-1'].edges.getSequenceFromMask(
+    mask=('[#ffffffff:53 #f ]', ), ), name='s_concrete-dummy-plates-1')
+mdb.models['Demo_Slab'].EmbeddedRegion(absoluteTolerance=0.0, embeddedRegion=
+    mdb.models['Demo_Slab'].rootAssembly.sets['m_reinforcement-0'], 
+    fractionalTolerance=0.05, hostRegion=
+    mdb.models['Demo_Slab'].rootAssembly.sets['s_concrete-dummy-plates-1'], 
+    name='embedded_region_reinforcement', toleranceMethod=BOTH, 
+    weightFactorTolerance=1e-06)
+mdb.models['Demo_Slab'].rootAssembly.Set(name='m_mpc_beam_RP-1', 
+    referencePoints=(mdb.models['Demo_Slab'].rootAssembly.referencePoints[1], 
+    ))
+mdb.models['Demo_Slab'].rootAssembly.Set(faces=(
+    mdb.models['Demo_Slab'].rootAssembly.instances['concrete-dummy-plates-1'].faces.getSequenceFromMask(
+    mask=('[#0:25 #10000 ]', ), ), ), name='s_mpc_beam_RP-1')
+mdb.models['Demo_Slab'].MultipointConstraint(controlPoint=
+    mdb.models['Demo_Slab'].rootAssembly.sets['m_mpc_beam_RP-1'], csys=None, 
+    mpcType=BEAM_MPC, name='mpc_beam_RP-1', surface=
+    mdb.models['Demo_Slab'].rootAssembly.sets['s_mpc_beam_RP-1'], userMode=
+    DOF_MODE_MPC, userType=0)
+mdb.models['Demo_Slab'].rootAssembly.Set(name='m_mpc_beam_RP-2', 
+    referencePoints=(mdb.models['Demo_Slab'].rootAssembly.referencePoints[3], 
+    ))
+mdb.models['Demo_Slab'].rootAssembly.Set(faces=(
+    mdb.models['Demo_Slab'].rootAssembly.instances['concrete-dummy-plates-1'].faces.getSequenceFromMask(
+    mask=('[#0:26 #20 ]', ), ), ), name='s_mpc_beam_RP-2')
+mdb.models['Demo_Slab'].MultipointConstraint(controlPoint=
+    mdb.models['Demo_Slab'].rootAssembly.sets['m_mpc_beam_RP-2'], csys=None, 
+    mpcType=BEAM_MPC, name='mpc_beam_RP-2', surface=
+    mdb.models['Demo_Slab'].rootAssembly.sets['s_mpc_beam_RP-2'], userMode=
+    DOF_MODE_MPC, userType=0)
+mdb.models['Demo_Slab'].rootAssembly.Set(name='m_mpc_beam_RP-5', 
+    referencePoints=(mdb.models['Demo_Slab'].rootAssembly.referencePoints[9], 
+    ))
+mdb.models['Demo_Slab'].rootAssembly.Set(faces=(
+    mdb.models['Demo_Slab'].rootAssembly.instances['concrete-dummy-plates-1'].faces.getSequenceFromMask(
+    mask=('[#0:25 #800000 ]', ), ), ), name='s_mpc_beam_RP-5')
+mdb.models['Demo_Slab'].MultipointConstraint(controlPoint=
+    mdb.models['Demo_Slab'].rootAssembly.sets['m_mpc_beam_RP-5'], csys=None, 
+    mpcType=BEAM_MPC, name='mpc_beam_RP-5', surface=
+    mdb.models['Demo_Slab'].rootAssembly.sets['s_mpc_beam_RP-5'], userMode=
+    DOF_MODE_MPC, userType=0)
+mdb.models['Demo_Slab'].rootAssembly.Set(name='m_mpc_beam_RP-6', 
+    referencePoints=(mdb.models['Demo_Slab'].rootAssembly.referencePoints[11], 
+    ))
+mdb.models['Demo_Slab'].rootAssembly.Set(faces=(
+    mdb.models['Demo_Slab'].rootAssembly.instances['concrete-dummy-plates-1'].faces.getSequenceFromMask(
+    mask=('[#0:25 #80000000 ]', ), ), ), name='s_mpc_beam_RP-6')
+mdb.models['Demo_Slab'].MultipointConstraint(controlPoint=
+    mdb.models['Demo_Slab'].rootAssembly.sets['m_mpc_beam_RP-6'], csys=None, 
+    mpcType=BEAM_MPC, name='mpc_beam_RP-6', surface=
+    mdb.models['Demo_Slab'].rootAssembly.sets['s_mpc_beam_RP-6'], userMode=
+    DOF_MODE_MPC, userType=0)
+mdb.models['Demo_Slab'].rootAssembly.Set(name='m_mpc_beam_RP-8', 
+    referencePoints=(mdb.models['Demo_Slab'].rootAssembly.referencePoints[15], 
+    ))
+mdb.models['Demo_Slab'].rootAssembly.Set(faces=(
+    mdb.models['Demo_Slab'].rootAssembly.instances['concrete-dummy-plates-1'].faces.getSequenceFromMask(
+    mask=('[#0:25 #200 ]', ), ), ), name='s_mpc_beam_RP-8')
+mdb.models['Demo_Slab'].MultipointConstraint(controlPoint=
+    mdb.models['Demo_Slab'].rootAssembly.sets['m_mpc_beam_RP-8'], csys=None, 
+    mpcType=BEAM_MPC, name='mpc_beam_RP-8', surface=
+    mdb.models['Demo_Slab'].rootAssembly.sets['s_mpc_beam_RP-8'], userMode=
+    DOF_MODE_MPC, userType=0)
+mdb.models['Demo_Slab'].rootAssembly.Set(name='bcName_RP-1', referencePoints=(
+    mdb.models['Demo_Slab'].rootAssembly.referencePoints[1], ))
+mdb.models['Demo_Slab'].DisplacementBC(amplitude=UNSET, createStepName=
+    'Initial', distributionType=UNIFORM, fieldName='', localCsys=None, name=
+    'roller_RP-1', region=
+    mdb.models['Demo_Slab'].rootAssembly.sets['bcName_RP-1'], u1=UNSET, u2=SET, 
+    u3=SET, ur1=SET, ur2=UNSET, ur3=UNSET)
+mdb.models['Demo_Slab'].rootAssembly.Set(name='bcName_RP-5', referencePoints=(
+    mdb.models['Demo_Slab'].rootAssembly.referencePoints[9], ))
+mdb.models['Demo_Slab'].DisplacementBC(amplitude=UNSET, createStepName=
+    'Initial', distributionType=UNIFORM, fieldName='', localCsys=None, name=
+    'hinge_RP-5', region=
+    mdb.models['Demo_Slab'].rootAssembly.sets['bcName_RP-5'], u1=SET, u2=SET, 
+    u3=SET, ur1=SET, ur2=UNSET, ur3=UNSET)
+mdb.models['Demo_Slab'].rootAssembly.Set(name='bcName_RP-8', referencePoints=(
+    mdb.models['Demo_Slab'].rootAssembly.referencePoints[15], ))
+mdb.models['Demo_Slab'].DisplacementBC(amplitude=UNSET, createStepName=
+    'Initial', distributionType=UNIFORM, fieldName='', localCsys=None, name=
+    'roller_RP-8', region=
+    mdb.models['Demo_Slab'].rootAssembly.sets['bcName_RP-8'], u1=UNSET, u2=SET, 
+    u3=SET, ur1=SET, ur2=UNSET, ur3=UNSET)
+mdb.models['Demo_Slab'].StaticStep(initialInc=0.01, maxInc=1, minInc=1e-06, 
+    name='load_disp', nlgeom=OFF, previous='Initial')
+mdb.models['Demo_Slab'].steps['load_disp'].setValues(maxNumInc=1000000)
+mdb.models['Demo_Slab'].rootAssembly.Set(name='load_disp_RP-4', 
+    referencePoints=(mdb.models['Demo_Slab'].rootAssembly.referencePoints[7], 
+    ))
+mdb.models['Demo_Slab'].DisplacementBC(amplitude=UNSET, createStepName=
+    'load_disp', distributionType=UNIFORM, fieldName='', localCsys=None, name=
+    'load_disp_RP-4', region=
+    mdb.models['Demo_Slab'].rootAssembly.sets['load_disp_RP-4'], u1=SET, u2=SET
+    , u3=-30, ur1=SET, ur2=UNSET, ur3=SET)
+mdb.models['Demo_Slab'].rootAssembly.seedPartInstance(deviationFactor=0.1, 
+    minSizeFactor=0.1, regions=(
+    mdb.models['Demo_Slab'].rootAssembly.instances['reinforcement-0'], ), size=
+    10.0)
+mdb.models['Demo_Slab'].rootAssembly.seedPartInstance(deviationFactor=0.1, 
+    minSizeFactor=0.1, regions=(
+    mdb.models['Demo_Slab'].rootAssembly.instances['concrete-dummy-plates-1'], 
+    ), size=10.0)
+mdb.models['Demo_Slab'].rootAssembly.setMeshControls(elemShape=TET, regions=
+    mdb.models['Demo_Slab'].rootAssembly.instances['concrete-dummy-plates-1'].cells.getSequenceFromMask(
+    mask=('[#ffffffff:7 #fff ]', ), ), technique=FREE)
+mdb.models['Demo_Slab'].rootAssembly.setElementType(elemTypes=(ElemType(
+    elemCode=C3D20R, elemLibrary=STANDARD), ), regions=(
+    mdb.models['Demo_Slab'].rootAssembly.instances['concrete-dummy-plates-1'].cells.getSequenceFromMask(
+    mask=('[#ffffffff:7 #fff ]', ), ), ))
+mdb.models['Demo_Slab'].rootAssembly.generateMesh(regions=(
+    mdb.models['Demo_Slab'].rootAssembly.instances['reinforcement-0'], ))
+mdb.models['Demo_Slab'].rootAssembly.generateMesh(regions=(
+    mdb.models['Demo_Slab'].rootAssembly.instances['concrete-dummy-plates-1'], 
+    ))
+mdb.models['Demo_Slab'].rootAssembly.regenerate()
+mdb.Job(atTime=None, contactPrint=OFF, description='', echoPrint=OFF, 
+    explicitPrecision=SINGLE, getMemoryFromAnalysis=True, historyPrint=OFF, 
+    memory=90, memoryUnits=PERCENTAGE, model='Demo_Slab', modelPrint=OFF, 
+    multiprocessingMode=DEFAULT, name='Demo_Slab', nodalOutputPrecision=SINGLE, 
+    numCpus=4, numDomains=4, numGPUs=0, queue=None, resultsFormat=ODB, scratch=
+    '', type=ANALYSIS, userSubroutine='', waitHours=0, waitMinutes=0)
+# Save by ac134018 on 2023_03_01-17.09.25; build 2023 2022_09_28-20.11.55 183150
+# Save by ac134018 on 2023_03_01-17.15.34; build 2023 2022_09_28-20.11.55 183150
+from part import *
+from material import *
+from section import *
+from assembly import *
+from step import *
+from interaction import *
+from load import *
+from mesh import *
+from optimization import *
+from job import *
+from sketch import *
+from visualization import *
+from connectorBehavior import *
+mdb.models['Demo_Slab'].rootAssembly.WirePolyLine(mergeType=IMPRINT, meshable=
+    OFF, points=((mdb.models['Demo_Slab'].rootAssembly.referencePoints[5], 
+    mdb.models['Demo_Slab'].rootAssembly.referencePoints[3]), ))
+mdb.models['Demo_Slab'].rootAssembly.Set(edges=
+    mdb.models['Demo_Slab'].rootAssembly.edges.getSequenceFromMask(('[#1 ]', ), 
+    ), name='Wire-1-Set-1')
+mdb.models['Demo_Slab'].rootAssembly.WirePolyLine(mergeType=IMPRINT, meshable=
+    OFF, points=((mdb.models['Demo_Slab'].rootAssembly.referencePoints[13], 
+    mdb.models['Demo_Slab'].rootAssembly.referencePoints[11]), ))
+mdb.models['Demo_Slab'].rootAssembly.Set(edges=
+    mdb.models['Demo_Slab'].rootAssembly.edges.getSequenceFromMask(('[#1 ]', ), 
+    ), name='Wire-2-Set-1')
+mdb.models['Demo_Slab'].MPCSection(mpcType=LINK_MPC, name='ConnSect-1', 
+    userMode=DOF_MODE, userType=0)
+mdb.models['Demo_Slab'].rootAssembly.SectionAssignment(region=Region(
+    edges=mdb.models['Demo_Slab'].rootAssembly.edges.getSequenceFromMask(mask=(
+    '[#2 ]', ), )), sectionName='ConnSect-1')
+# Save by ac134018 on 2023_03_01-17.19.24; build 2023 2022_09_28-20.11.55 183150

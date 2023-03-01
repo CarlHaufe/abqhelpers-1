@@ -1,0 +1,124 @@
+# -*- coding: mbcs -*-
+#
+# Abaqus/CAE Release 2023 replay file
+# Internal Version: 2022_09_28-20.11.55 183150
+# Run by ac134018 on Wed Mar  1 10:40:43 2023
+#
+
+# from driverUtils import executeOnCaeGraphicsStartup
+# executeOnCaeGraphicsStartup()
+#: Executing "onCaeGraphicsStartup()" in the site directory ...
+from abaqus import *
+from abaqusConstants import *
+session.Viewport(name='Viewport: 1', origin=(0.0, 0.0), width=176.490097045898, 
+    height=155.674072265625)
+session.viewports['Viewport: 1'].makeCurrent()
+session.viewports['Viewport: 1'].maximize()
+from caeModules import *
+from driverUtils import executeOnCaeStartup
+executeOnCaeStartup()
+session.viewports['Viewport: 1'].partDisplay.geometryOptions.setValues(
+    referenceRepresentation=ON)
+execfile('4_P_cantilever_Concrete_Beam.py', __main__.__dict__)
+#: C:/temp\GitHub_ch/abqhelpers/helpers/filemanager.py:10: RuntimeWarning: Parent module 'helpers' not found while handling absolute import
+#:   import os
+#: C:/temp\GitHub_ch/abqhelpers/helpers/filemanager.py:11: RuntimeWarning: Parent module 'helpers' not found while handling absolute import
+#:   import sys
+#: C:/temp\GitHub_ch/abqhelpers/helpers/filemanager.py:12: RuntimeWarning: Parent module 'helpers' not found while handling absolute import
+#:   import shutil
+#: C:/temp\GitHub_ch/abqhelpers/src/abq_parts.py:17: RuntimeWarning: Parent module 'sec' not found while handling absolute import
+#:   from abaqus import *
+#: C:/temp\GitHub_ch/abqhelpers/src/abq_parts.py:18: RuntimeWarning: Parent module 'sec' not found while handling absolute import
+#:   from abaqusConstants import *
+#: C:/temp\GitHub_ch/abqhelpers/src/abq_parts.py:19: RuntimeWarning: Parent module 'sec' not found while handling absolute import
+#:   import os
+#: C:/temp\GitHub_ch/abqhelpers/src/abq_property.py:17: RuntimeWarning: Parent module 'sec' not found while handling absolute import
+#:   from abaqus import *
+#: C:/temp\GitHub_ch/abqhelpers/src/abq_property.py:18: RuntimeWarning: Parent module 'sec' not found while handling absolute import
+#:   from abaqusConstants import *
+#: C:/temp\GitHub_ch/abqhelpers/src/abq_property.py:19: RuntimeWarning: Parent module 'sec' not found while handling absolute import
+#:   from driverUtils import *
+#: C:/temp\GitHub_ch/abqhelpers/src/abq_property.py:20: RuntimeWarning: Parent module 'sec' not found while handling absolute import
+#:   from caeModules import *
+#: C:/temp\GitHub_ch/abqhelpers/src/abq_property.py:22: RuntimeWarning: Parent module 'sec' not found while handling absolute import
+#:   import os
+#: C:/temp\GitHub_ch/abqhelpers/src/abq_property.py:23: RuntimeWarning: Parent module 'sec' not found while handling absolute import
+#:   import pickle
+#: C:/temp\GitHub_ch/abqhelpers/src/abq_property.py:24: RuntimeWarning: Parent module 'sec' not found while handling absolute import
+#:   import numpy as np
+#: C:/temp\GitHub_ch/abqhelpers/src/abq_assembly.py:17: RuntimeWarning: Parent module 'sec' not found while handling absolute import
+#:   from abaqus import *
+#: C:/temp\GitHub_ch/abqhelpers/src/abq_assembly.py:18: RuntimeWarning: Parent module 'sec' not found while handling absolute import
+#:   from abaqusConstants import *
+#: C:/temp\GitHub_ch/abqhelpers/src/abq_assembly.py:19: RuntimeWarning: Parent module 'sec' not found while handling absolute import
+#:   import os
+#: C:/temp\GitHub_ch/abqhelpers/src/abq_interaction.py:17: RuntimeWarning: Parent module 'sec' not found while handling absolute import
+#:   from abaqus import *
+#: C:/temp\GitHub_ch/abqhelpers/src/abq_interaction.py:18: RuntimeWarning: Parent module 'sec' not found while handling absolute import
+#:   from abaqusConstants import *
+#: C:/temp\GitHub_ch/abqhelpers/src/abq_interaction.py:19: RuntimeWarning: Parent module 'sec' not found while handling absolute import
+#:   import os
+#: C:/temp\GitHub_ch/abqhelpers/src/abq_interaction.py:20: RuntimeWarning: Parent module 'sec' not found while handling absolute import
+#:   import pickle
+#: C:/temp\GitHub_ch/abqhelpers/src/abq_interaction.py:21: RuntimeWarning: Parent module 'sec' not found while handling absolute import
+#:   import numpy as np
+#: C:/temp\GitHub_ch/abqhelpers/src/abq_step.py:17: RuntimeWarning: Parent module 'sec' not found while handling absolute import
+#:   from abaqus import *
+#: C:/temp\GitHub_ch/abqhelpers/src/abq_step.py:18: RuntimeWarning: Parent module 'sec' not found while handling absolute import
+#:   from abaqusConstants import *
+#: C:/temp\GitHub_ch/abqhelpers/src/abq_mesh.py:17: RuntimeWarning: Parent module 'sec' not found while handling absolute import
+#:   from abaqus import *
+#: C:/temp\GitHub_ch/abqhelpers/src/abq_mesh.py:18: RuntimeWarning: Parent module 'sec' not found while handling absolute import
+#:   from abaqusConstants import *
+#: C:/temp\GitHub_ch/abqhelpers/src/abq_mesh.py:19: RuntimeWarning: Parent module 'sec' not found while handling absolute import
+#:   import os
+#: C:/temp\GitHub_ch/abqhelpers/src/abq_job.py:17: RuntimeWarning: Parent module 'sec' not found while handling absolute import
+#:   from abaqus import *
+#: C:/temp\GitHub_ch/abqhelpers/src/abq_job.py:18: RuntimeWarning: Parent module 'sec' not found while handling absolute import
+#:   from abaqusConstants import *
+#: The model "Concrete_beam_4_cantilever_B" has been created.
+#: C:/temp\GitHub_ch/abqhelpers/helpers/filemanager.py:80: RuntimeWarning: Parent module 'helpers' not found while handling absolute import
+#:   import os
+#: C:/temp\GitHub_ch/abqhelpers/src/abq_property.py:46: RuntimeWarning: Parent module 'sec' not found while handling absolute import
+#:   from material import createMaterialFromDataString
+#: Material 'concrete_cdp_C50_60' has been copied to the current model.
+#: Material 'support_stiff' has been copied to the current model.
+#: Material 'reinforcement_b500' has been copied to the current model.
+#: Partitioning failed for instance: concrete-dummy-plates-1
+#: Partitioning failed for instance: concrete-dummy-plates-1
+#: Partitioning failed for instance: concrete-dummy-plates-1
+#: Partitioning failed for instance: concrete-dummy-plates-1
+#: Partitioning failed for instance: concrete-dummy-plates-1
+#: Partitioning failed for instance: concrete-dummy-plates-1
+#: Partitioning failed for instance: concrete-dummy-plates-1
+#: Partitioning failed for instance: concrete-dummy-plates-1
+#: Partitioning failed for instance: concrete-dummy-plates-1
+#: Partitioning failed for instance: concrete-dummy-plates-1
+#: Partitioning failed for instance: concrete-dummy-plates-1
+#: Partitioning failed for instance: concrete-dummy-plates-1
+#: Partitioning failed for instance: concrete-dummy-plates-1
+#: Partitioning failed for instance: concrete-dummy-plates-1
+#: Partitioning failed for instance: concrete-dummy-plates-1
+#: Partitioning failed for instance: concrete-dummy-plates-1
+#: Partitioning failed for instance: concrete-dummy-plates-1
+p = mdb.models['Concrete_beam_4_cantilever_B'].parts['concrete-dummy-plates']
+session.viewports['Viewport: 1'].setValues(displayedObject=p)
+a = mdb.models['Concrete_beam_4_cantilever_B'].rootAssembly
+session.viewports['Viewport: 1'].setValues(displayedObject=a)
+session.viewports['Viewport: 1'].assemblyDisplay.setValues(
+    optimizationTasks=OFF, geometricRestrictions=OFF, stopConditions=OFF)
+session.viewports['Viewport: 1'].assemblyDisplay.setValues(mesh=ON)
+session.viewports['Viewport: 1'].assemblyDisplay.meshOptions.setValues(
+    meshTechnique=ON)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=2224.69, 
+    farPlane=3589.31, width=1625.9, height=571.404, cameraPosition=(-1271.21, 
+    -1202.85, 1929.45), cameraUpVector=(0.529833, 0.699602, 0.47941), 
+    cameraTarget=(657.905, 12.0092, 70.0869))
+session.viewports['Viewport: 1'].view.setValues(nearPlane=2631.93, 
+    farPlane=3259.46, width=1923.53, height=676.004, cameraPosition=(852.629, 
+    -1915.46, 2270.08), cameraUpVector=(-0.0227676, 0.927819, 0.372335), 
+    cameraTarget=(632.431, 20.5564, 66.0013))
+session.viewports['Viewport: 1'].view.setValues(nearPlane=2535.12, 
+    farPlane=3371.07, width=1852.78, height=651.139, cameraPosition=(-84.3285, 
+    -2649.51, 1073.64), cameraUpVector=(0.103195, 0.630582, 0.769232), 
+    cameraTarget=(631.215, 19.6035, 64.4481))

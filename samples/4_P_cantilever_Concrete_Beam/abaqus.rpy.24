@@ -1,0 +1,139 @@
+# -*- coding: mbcs -*-
+#
+# Abaqus/CAE Release 2023 replay file
+# Internal Version: 2022_09_28-20.11.55 183150
+# Run by ac134018 on Wed Mar  1 10:17:12 2023
+#
+
+# from driverUtils import executeOnCaeGraphicsStartup
+# executeOnCaeGraphicsStartup()
+#: Executing "onCaeGraphicsStartup()" in the site directory ...
+from abaqus import *
+from abaqusConstants import *
+session.Viewport(name='Viewport: 1', origin=(0.0, 0.0), width=176.490097045898, 
+    height=155.674072265625)
+session.viewports['Viewport: 1'].makeCurrent()
+session.viewports['Viewport: 1'].maximize()
+from caeModules import *
+from driverUtils import executeOnCaeStartup
+executeOnCaeStartup()
+session.viewports['Viewport: 1'].partDisplay.geometryOptions.setValues(
+    referenceRepresentation=ON)
+execfile('4_P_cantilever_Concrete_Beam.py', __main__.__dict__)
+#: C:/temp\GitHub_ch/abqhelpers/helpers/filemanager.py:10: RuntimeWarning: Parent module 'helpers' not found while handling absolute import
+#:   import os
+#: C:/temp\GitHub_ch/abqhelpers/helpers/filemanager.py:11: RuntimeWarning: Parent module 'helpers' not found while handling absolute import
+#:   import sys
+#: C:/temp\GitHub_ch/abqhelpers/helpers/filemanager.py:12: RuntimeWarning: Parent module 'helpers' not found while handling absolute import
+#:   import shutil
+#: C:/temp\GitHub_ch/abqhelpers/src/abq_parts.py:17: RuntimeWarning: Parent module 'sec' not found while handling absolute import
+#:   from abaqus import *
+#: C:/temp\GitHub_ch/abqhelpers/src/abq_parts.py:18: RuntimeWarning: Parent module 'sec' not found while handling absolute import
+#:   from abaqusConstants import *
+#: C:/temp\GitHub_ch/abqhelpers/src/abq_parts.py:19: RuntimeWarning: Parent module 'sec' not found while handling absolute import
+#:   import os
+#: C:/temp\GitHub_ch/abqhelpers/src/abq_property.py:17: RuntimeWarning: Parent module 'sec' not found while handling absolute import
+#:   from abaqus import *
+#: C:/temp\GitHub_ch/abqhelpers/src/abq_property.py:18: RuntimeWarning: Parent module 'sec' not found while handling absolute import
+#:   from abaqusConstants import *
+#: C:/temp\GitHub_ch/abqhelpers/src/abq_property.py:19: RuntimeWarning: Parent module 'sec' not found while handling absolute import
+#:   from driverUtils import *
+#: C:/temp\GitHub_ch/abqhelpers/src/abq_property.py:20: RuntimeWarning: Parent module 'sec' not found while handling absolute import
+#:   from caeModules import *
+#: C:/temp\GitHub_ch/abqhelpers/src/abq_property.py:22: RuntimeWarning: Parent module 'sec' not found while handling absolute import
+#:   import os
+#: C:/temp\GitHub_ch/abqhelpers/src/abq_property.py:23: RuntimeWarning: Parent module 'sec' not found while handling absolute import
+#:   import pickle
+#: C:/temp\GitHub_ch/abqhelpers/src/abq_property.py:24: RuntimeWarning: Parent module 'sec' not found while handling absolute import
+#:   import numpy as np
+#: C:/temp\GitHub_ch/abqhelpers/src/abq_assembly.py:17: RuntimeWarning: Parent module 'sec' not found while handling absolute import
+#:   from abaqus import *
+#: C:/temp\GitHub_ch/abqhelpers/src/abq_assembly.py:18: RuntimeWarning: Parent module 'sec' not found while handling absolute import
+#:   from abaqusConstants import *
+#: C:/temp\GitHub_ch/abqhelpers/src/abq_assembly.py:19: RuntimeWarning: Parent module 'sec' not found while handling absolute import
+#:   import os
+#: C:/temp\GitHub_ch/abqhelpers/src/abq_interaction.py:17: RuntimeWarning: Parent module 'sec' not found while handling absolute import
+#:   from abaqus import *
+#: C:/temp\GitHub_ch/abqhelpers/src/abq_interaction.py:18: RuntimeWarning: Parent module 'sec' not found while handling absolute import
+#:   from abaqusConstants import *
+#: C:/temp\GitHub_ch/abqhelpers/src/abq_interaction.py:19: RuntimeWarning: Parent module 'sec' not found while handling absolute import
+#:   import os
+#: C:/temp\GitHub_ch/abqhelpers/src/abq_interaction.py:20: RuntimeWarning: Parent module 'sec' not found while handling absolute import
+#:   import pickle
+#: C:/temp\GitHub_ch/abqhelpers/src/abq_interaction.py:21: RuntimeWarning: Parent module 'sec' not found while handling absolute import
+#:   import numpy as np
+#: C:/temp\GitHub_ch/abqhelpers/src/abq_step.py:17: RuntimeWarning: Parent module 'sec' not found while handling absolute import
+#:   from abaqus import *
+#: C:/temp\GitHub_ch/abqhelpers/src/abq_step.py:18: RuntimeWarning: Parent module 'sec' not found while handling absolute import
+#:   from abaqusConstants import *
+#: C:/temp\GitHub_ch/abqhelpers/src/abq_mesh.py:17: RuntimeWarning: Parent module 'sec' not found while handling absolute import
+#:   from abaqus import *
+#: C:/temp\GitHub_ch/abqhelpers/src/abq_mesh.py:18: RuntimeWarning: Parent module 'sec' not found while handling absolute import
+#:   from abaqusConstants import *
+#: C:/temp\GitHub_ch/abqhelpers/src/abq_mesh.py:19: RuntimeWarning: Parent module 'sec' not found while handling absolute import
+#:   import os
+#: C:/temp\GitHub_ch/abqhelpers/src/abq_job.py:17: RuntimeWarning: Parent module 'sec' not found while handling absolute import
+#:   from abaqus import *
+#: C:/temp\GitHub_ch/abqhelpers/src/abq_job.py:18: RuntimeWarning: Parent module 'sec' not found while handling absolute import
+#:   from abaqusConstants import *
+#: The model "Concrete_beam_4_cantilever_B" has been created.
+#: C:/temp\GitHub_ch/abqhelpers/helpers/filemanager.py:80: RuntimeWarning: Parent module 'helpers' not found while handling absolute import
+#:   import os
+#: C:/temp\GitHub_ch/abqhelpers/src/abq_property.py:46: RuntimeWarning: Parent module 'sec' not found while handling absolute import
+#:   from material import createMaterialFromDataString
+#: Material 'concrete_cdp_C50_60' has been copied to the current model.
+#: Material 'support_stiff' has been copied to the current model.
+#: Material 'reinforcement_b500' has been copied to the current model.
+#: Partitioning failed for instance: concrete-dummy-plates-1
+#: Partitioning failed for instance: concrete-dummy-plates-1
+#: Partitioning failed for instance: concrete-dummy-plates-1
+#: Partitioning failed for instance: concrete-dummy-plates-1
+#: Partitioning failed for instance: concrete-dummy-plates-1
+#: Partitioning failed for instance: concrete-dummy-plates-1
+#: Partitioning failed for instance: concrete-dummy-plates-1
+#: Partitioning failed for instance: concrete-dummy-plates-1
+#: Partitioning failed for instance: concrete-dummy-plates-1
+#: Partitioning failed for instance: concrete-dummy-plates-1
+#: Partitioning failed for instance: concrete-dummy-plates-1
+#: Partitioning failed for instance: concrete-dummy-plates-1
+#: Partitioning failed for instance: concrete-dummy-plates-1
+#: Partitioning failed for instance: concrete-dummy-plates-1
+#: Partitioning failed for instance: concrete-dummy-plates-1
+#: Partitioning failed for instance: concrete-dummy-plates-1
+#: Partitioning failed for instance: concrete-dummy-plates-1
+p = mdb.models['Concrete_beam_4_cantilever_B'].parts['concrete-dummy-plates']
+session.viewports['Viewport: 1'].setValues(displayedObject=p)
+a = mdb.models['Concrete_beam_4_cantilever_B'].rootAssembly
+session.viewports['Viewport: 1'].setValues(displayedObject=a)
+session.viewports['Viewport: 1'].assemblyDisplay.setValues(
+    optimizationTasks=OFF, geometricRestrictions=OFF, stopConditions=OFF)
+session.viewports['Viewport: 1'].assemblyDisplay.setValues(mesh=ON)
+session.viewports['Viewport: 1'].assemblyDisplay.meshOptions.setValues(
+    meshTechnique=ON)
+session.viewports['Viewport: 1'].view.setValues(session.views['Left'])
+session.viewports['Viewport: 1'].view.setValues(session.views['Bottom'])
+session.viewports['Viewport: 1'].view.setProjection(projection=PARALLEL)
+cliCommand("""# Generate mesh""")
+cliCommand("""def generate_mesh_all_active_instances(model,):
+    a = model.rootAssembly
+    for key in a.instances.keys():
+        # choose only active instances
+        if a.instances[key].ips != None:
+            # generate mesh
+            a.generateMesh(
+                regions=(a.instances[key],)),
+""")
+cliCommand("""elemType1 = mesh.ElemType(elemCode=C3D8R)""")
+cliCommand("""elemTypes = (elemType1,)""")
+cliCommand("""abq_mesh.assign_mesh_control_all_active_instances(
+    model, elemTypes, elemShape=TET, technique=FREE)""")
+cliCommand("""abq_mesh.generate_mesh_all_active_instances(model)""")
+cliCommand("""abq_mesh.assign_mesh_control_all_active_instances(
+    model, elemTypes, elemShape=HEX, technique=FREE)""")
+#* Error: Free Hex meshing is not supported.
+#* File "C:/temp\GitHub_ch/abqhelpers/src/abq_mesh.py", line 98, in 
+#* assign_mesh_control_all_active_instances
+#*     regions=c, elemShape=elemShape, technique=technique)
+cliCommand("""abq_mesh.assign_mesh_control_all_active_instances(
+    model, elemTypes, elemShape=HEX, technique=STRUCTURED)""")
+cliCommand("""abq_mesh.generate_mesh_all_active_instances(model)""")

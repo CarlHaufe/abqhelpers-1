@@ -321,13 +321,18 @@ for referencePoint in referencePoints:
 # ----------------
 
 abq_mesh.seed_all_active_instances(
-    model, size=20.0, deviationFactor=0.1, minSizeFactor=0.1)
+    model, size=4.0, deviationFactor=0.1, minSizeFactor=0.1)
 
-elemType1 = mesh.ElemType(elemCode=C3D20R)
+
+# a.setElementType(elemTypes=
+# (ElemType(elemCode=C3D8R, elemLibrary=STANDARD),
+# ElemType(elemCode=C3D6, elemLibrary=STANDARD),
+# ElemType(elemCode=C3D4, elemLibrary=STANDARD)), ...
+elemType1 = mesh.ElemType(elemCode=C3D8R)
 elemTypes = (elemType1,)
 
 abq_mesh.assign_mesh_control_all_active_instances(
-    model, elemTypes, elemShape=TET, technique=FREE)
+    model, elemTypes, elemShape=HEX, technique=STRUCTURED)
 
 abq_mesh.generate_mesh_all_active_instances(model)
 

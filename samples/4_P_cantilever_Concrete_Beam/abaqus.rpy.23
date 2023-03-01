@@ -1,0 +1,239 @@
+# -*- coding: mbcs -*-
+#
+# Abaqus/CAE Release 2023 replay file
+# Internal Version: 2022_09_28-20.11.55 183150
+# Run by ac134018 on Tue Feb 28 15:26:35 2023
+#
+
+# from driverUtils import executeOnCaeGraphicsStartup
+# executeOnCaeGraphicsStartup()
+#: Executing "onCaeGraphicsStartup()" in the site directory ...
+from abaqus import *
+from abaqusConstants import *
+session.Viewport(name='Viewport: 1', origin=(0.0, 0.0), width=176.490097045898, 
+    height=155.674072265625)
+session.viewports['Viewport: 1'].makeCurrent()
+session.viewports['Viewport: 1'].maximize()
+from caeModules import *
+from driverUtils import executeOnCaeStartup
+executeOnCaeStartup()
+session.viewports['Viewport: 1'].partDisplay.geometryOptions.setValues(
+    referenceRepresentation=ON)
+execfile('4_P_cantilever_Concrete_Beam.py', __main__.__dict__)
+#: C:/temp\GitHub_ch/abqhelpers/helpers/filemanager.py:10: RuntimeWarning: Parent module 'helpers' not found while handling absolute import
+#:   import os
+#: C:/temp\GitHub_ch/abqhelpers/helpers/filemanager.py:11: RuntimeWarning: Parent module 'helpers' not found while handling absolute import
+#:   import sys
+#: C:/temp\GitHub_ch/abqhelpers/helpers/filemanager.py:12: RuntimeWarning: Parent module 'helpers' not found while handling absolute import
+#:   import shutil
+#: C:/temp\GitHub_ch/abqhelpers/src/abq_parts.py:17: RuntimeWarning: Parent module 'sec' not found while handling absolute import
+#:   from abaqus import *
+#: C:/temp\GitHub_ch/abqhelpers/src/abq_parts.py:18: RuntimeWarning: Parent module 'sec' not found while handling absolute import
+#:   from abaqusConstants import *
+#: C:/temp\GitHub_ch/abqhelpers/src/abq_parts.py:19: RuntimeWarning: Parent module 'sec' not found while handling absolute import
+#:   import os
+#: C:/temp\GitHub_ch/abqhelpers/src/abq_property.py:17: RuntimeWarning: Parent module 'sec' not found while handling absolute import
+#:   from abaqus import *
+#: C:/temp\GitHub_ch/abqhelpers/src/abq_property.py:18: RuntimeWarning: Parent module 'sec' not found while handling absolute import
+#:   from abaqusConstants import *
+#: C:/temp\GitHub_ch/abqhelpers/src/abq_property.py:19: RuntimeWarning: Parent module 'sec' not found while handling absolute import
+#:   from driverUtils import *
+#: C:/temp\GitHub_ch/abqhelpers/src/abq_property.py:20: RuntimeWarning: Parent module 'sec' not found while handling absolute import
+#:   from caeModules import *
+#: C:/temp\GitHub_ch/abqhelpers/src/abq_property.py:22: RuntimeWarning: Parent module 'sec' not found while handling absolute import
+#:   import os
+#: C:/temp\GitHub_ch/abqhelpers/src/abq_property.py:23: RuntimeWarning: Parent module 'sec' not found while handling absolute import
+#:   import pickle
+#: C:/temp\GitHub_ch/abqhelpers/src/abq_property.py:24: RuntimeWarning: Parent module 'sec' not found while handling absolute import
+#:   import numpy as np
+#: C:/temp\GitHub_ch/abqhelpers/src/abq_assembly.py:17: RuntimeWarning: Parent module 'sec' not found while handling absolute import
+#:   from abaqus import *
+#: C:/temp\GitHub_ch/abqhelpers/src/abq_assembly.py:18: RuntimeWarning: Parent module 'sec' not found while handling absolute import
+#:   from abaqusConstants import *
+#: C:/temp\GitHub_ch/abqhelpers/src/abq_assembly.py:19: RuntimeWarning: Parent module 'sec' not found while handling absolute import
+#:   import os
+#: C:/temp\GitHub_ch/abqhelpers/src/abq_interaction.py:17: RuntimeWarning: Parent module 'sec' not found while handling absolute import
+#:   from abaqus import *
+#: C:/temp\GitHub_ch/abqhelpers/src/abq_interaction.py:18: RuntimeWarning: Parent module 'sec' not found while handling absolute import
+#:   from abaqusConstants import *
+#: C:/temp\GitHub_ch/abqhelpers/src/abq_interaction.py:19: RuntimeWarning: Parent module 'sec' not found while handling absolute import
+#:   import os
+#: C:/temp\GitHub_ch/abqhelpers/src/abq_interaction.py:20: RuntimeWarning: Parent module 'sec' not found while handling absolute import
+#:   import pickle
+#: C:/temp\GitHub_ch/abqhelpers/src/abq_interaction.py:21: RuntimeWarning: Parent module 'sec' not found while handling absolute import
+#:   import numpy as np
+#: C:/temp\GitHub_ch/abqhelpers/src/abq_step.py:17: RuntimeWarning: Parent module 'sec' not found while handling absolute import
+#:   from abaqus import *
+#: C:/temp\GitHub_ch/abqhelpers/src/abq_step.py:18: RuntimeWarning: Parent module 'sec' not found while handling absolute import
+#:   from abaqusConstants import *
+#: C:/temp\GitHub_ch/abqhelpers/src/abq_mesh.py:17: RuntimeWarning: Parent module 'sec' not found while handling absolute import
+#:   from abaqus import *
+#: C:/temp\GitHub_ch/abqhelpers/src/abq_mesh.py:18: RuntimeWarning: Parent module 'sec' not found while handling absolute import
+#:   from abaqusConstants import *
+#: C:/temp\GitHub_ch/abqhelpers/src/abq_mesh.py:19: RuntimeWarning: Parent module 'sec' not found while handling absolute import
+#:   import os
+#: C:/temp\GitHub_ch/abqhelpers/src/abq_job.py:17: RuntimeWarning: Parent module 'sec' not found while handling absolute import
+#:   from abaqus import *
+#: C:/temp\GitHub_ch/abqhelpers/src/abq_job.py:18: RuntimeWarning: Parent module 'sec' not found while handling absolute import
+#:   from abaqusConstants import *
+#: The model "Concrete_beam_4_cantilever_B" has been created.
+#: C:/temp\GitHub_ch/abqhelpers/helpers/filemanager.py:80: RuntimeWarning: Parent module 'helpers' not found while handling absolute import
+#:   import os
+#: C:/temp\GitHub_ch/abqhelpers/src/abq_property.py:46: RuntimeWarning: Parent module 'sec' not found while handling absolute import
+#:   from material import createMaterialFromDataString
+#: Material 'concrete_cdp_C50_60' has been copied to the current model.
+#: Material 'support_stiff' has been copied to the current model.
+#: Material 'reinforcement_b500' has been copied to the current model.
+#: Partitioning failed for instance: concrete-dummy-plates-1
+#: Partitioning failed for instance: concrete-dummy-plates-1
+#: Partitioning failed for instance: concrete-dummy-plates-1
+#: Partitioning failed for instance: concrete-dummy-plates-1
+#: Partitioning failed for instance: concrete-dummy-plates-1
+#: Partitioning failed for instance: concrete-dummy-plates-1
+#: Partitioning failed for instance: concrete-dummy-plates-1
+#: Partitioning failed for instance: concrete-dummy-plates-1
+#: Partitioning failed for instance: concrete-dummy-plates-1
+#: Partitioning failed for instance: concrete-dummy-plates-1
+#: Partitioning failed for instance: concrete-dummy-plates-1
+#: Partitioning failed for instance: concrete-dummy-plates-1
+#: Partitioning failed for instance: concrete-dummy-plates-1
+#: Partitioning failed for instance: concrete-dummy-plates-1
+#: Partitioning failed for instance: concrete-dummy-plates-1
+#: Partitioning failed for instance: concrete-dummy-plates-1
+#: Partitioning failed for instance: concrete-dummy-plates-1
+p = mdb.models['Concrete_beam_4_cantilever_B'].parts['concrete-dummy-plates']
+session.viewports['Viewport: 1'].setValues(displayedObject=p)
+session.viewports['Viewport: 1'].view.setValues(session.views['Bottom'])
+session.viewports['Viewport: 1'].view.setProjection(projection=PARALLEL)
+a = mdb.models['Concrete_beam_4_cantilever_B'].rootAssembly
+session.viewports['Viewport: 1'].setValues(displayedObject=a)
+session.viewports['Viewport: 1'].assemblyDisplay.setValues(
+    optimizationTasks=OFF, geometricRestrictions=OFF, stopConditions=OFF)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=2662.92, 
+    farPlane=3308.05, width=1951.18, height=683.963, cameraPosition=(1096.67, 
+    -2876.65, 413.211), cameraUpVector=(-0.275031, 0.401468, 0.873603), 
+    cameraTarget=(657.905, 12.0093, 70.087))
+session.viewports['Viewport: 1'].view.setValues(nearPlane=2647.77, 
+    farPlane=3323.21, width=1940.08, height=680.073, cameraPosition=(1096.67, 
+    -2876.65, 413.211), cameraUpVector=(-0.022784, 0.4425, 0.896479), 
+    cameraTarget=(657.905, 12.0093, 70.087))
+session.viewports['Viewport: 1'].view.setValues(nearPlane=2640.02, 
+    farPlane=3300.04, width=1934.4, height=678.083, cameraPosition=(262.63, 
+    -2865.78, 546.651), cameraUpVector=(0.167639, 0.462042, 0.87087), 
+    cameraTarget=(645.72, 12.1681, 72.0365))
+session.viewports['Viewport: 1'].view.setValues(nearPlane=2307.8, 
+    farPlane=3568.94, width=1690.98, height=592.753, cameraPosition=(-1005.4, 
+    -1950.7, 1523.86), cameraUpVector=(0.363603, 0.669239, 0.648006), 
+    cameraTarget=(633.698, 20.8439, 81.3013))
+session.viewports['Viewport: 1'].view.setValues(nearPlane=2355.74, 
+    farPlane=3528.47, width=1726.1, height=605.067, cameraPosition=(-918.856, 
+    -2161.65, 1298.17), cameraUpVector=(0.346498, 0.603224, 0.718373), 
+    cameraTarget=(633.595, 21.0952, 81.5702))
+cliCommand("""abq_mesh.delete_mesh_all_active_instances(model)""")
+cliCommand("""mdb.saveAs(modelName)""")
+#: The model database has been saved to "C:\temp\GitHub_ch\abqhelpers\samples\4_P_cantilever_Concrete_Beam\Concrete_beam_4_cantilever_B.cae".
+mdb.save()
+#: The model database has been saved to "C:\temp\GitHub_ch\abqhelpers\samples\4_P_cantilever_Concrete_Beam\Concrete_beam_4_cantilever_B.cae".
+session.viewports['Viewport: 1'].assemblyDisplay.setValues(mesh=ON)
+session.viewports['Viewport: 1'].assemblyDisplay.meshOptions.setValues(
+    meshTechnique=ON)
+session.viewports['Viewport: 1'].view.setValues(session.views['Bottom'])
+session.viewports['Viewport: 1'].view.setProjection(projection=PARALLEL)
+a = mdb.models['Concrete_beam_4_cantilever_B'].rootAssembly
+c1 = a.instances['concrete-dummy-plates-1'].cells
+pickedRegions = c1.getSequenceFromMask(mask=('[#ffffffff #fe6bd7ff #3f ]', ), )
+a.setMeshControls(regions=pickedRegions, elemShape=HEX, technique=STRUCTURED)
+elemType1 = mesh.ElemType(elemCode=C3D8R)
+elemType2 = mesh.ElemType(elemCode=C3D6)
+elemType3 = mesh.ElemType(elemCode=C3D4)
+a = mdb.models['Concrete_beam_4_cantilever_B'].rootAssembly
+c1 = a.instances['concrete-dummy-plates-1'].cells
+cells = c1.getSequenceFromMask(mask=('[#ffffffff #fe6bd7ff #3f ]', ), )
+pickedRegions =(cells, )
+a.setElementType(regions=pickedRegions, elemTypes=(elemType1, elemType2, 
+    elemType3))
+mdb.save()
+#: The model database has been saved to "C:\temp\GitHub_ch\abqhelpers\samples\4_P_cantilever_Concrete_Beam\Concrete_beam_4_cantilever_B.cae".
+mdb.save()
+#: The model database has been saved to "C:\temp\GitHub_ch\abqhelpers\samples\4_P_cantilever_Concrete_Beam\Concrete_beam_4_cantilever_B.cae".
+mdb.save()
+#: The model database has been saved to "C:\temp\GitHub_ch\abqhelpers\samples\4_P_cantilever_Concrete_Beam\Concrete_beam_4_cantilever_B.cae".
+a = mdb.models['Concrete_beam_4_cantilever_B'].rootAssembly
+partInstances =(a.instances['concrete-dummy-plates-1'], )
+a.seedPartInstance(regions=partInstances, size=5.0, deviationFactor=0.1, 
+    minSizeFactor=0.1)
+a = mdb.models['Concrete_beam_4_cantilever_B'].rootAssembly
+partInstances =(a.instances['concrete-dummy-plates-1'], )
+a.generateMesh(regions=partInstances)
+mdb.save()
+#: The model database has been saved to "C:\temp\GitHub_ch\abqhelpers\samples\4_P_cantilever_Concrete_Beam\Concrete_beam_4_cantilever_B.cae".
+session.viewports['Viewport: 1'].view.setValues(nearPlane=2491.14, 
+    farPlane=2879.74, width=1662.27, height=584.189, cameraPosition=(641.375, 
+    -2635.44, 82.072), cameraTarget=(641.375, 50, 82.072))
+mdb.save()
+#: The model database has been saved to "C:\temp\GitHub_ch\abqhelpers\samples\4_P_cantilever_Concrete_Beam\Concrete_beam_4_cantilever_B.cae".
+session.viewports['Viewport: 1'].view.setValues(nearPlane=2491.38, 
+    farPlane=2879.51, width=1659.45, height=583.195, cameraPosition=(683.966, 
+    -2635.44, 18.8427), cameraTarget=(683.966, 50, 18.8427))
+session.viewports['Viewport: 1'].view.setValues(nearPlane=2347.03, 
+    farPlane=2995.35, cameraPosition=(193.737, -2590, -21.8185), 
+    cameraUpVector=(0.415878, -0.0911617, 0.90484), cameraTarget=(683.966, 50, 
+    18.8427))
+session.viewports['Viewport: 1'].view.setValues(nearPlane=1892.3, 
+    farPlane=3265.75, cameraPosition=(-1139.21, -1093.15, 1614.19), 
+    cameraUpVector=(0.41766, 0.445549, 0.791862), cameraTarget=(691.077, 
+    42.0143, 10.1147))
+session.viewports['Viewport: 1'].view.setValues(nearPlane=1892.3, 
+    cameraPosition=(-1139.21, -1093.15, 1614.19), cameraUpVector=(0.355193, 
+    0.522566, 0.775089))
+session.viewports['Viewport: 1'].view.setValues(nearPlane=1990.23, 
+    farPlane=3167.82, width=596.759, height=209.725, cameraPosition=(-1384.6, 
+    -972.404, 1419.65), cameraTarget=(445.689, 162.761, -184.429))
+mdb.save()
+#: The model database has been saved to "C:\temp\GitHub_ch\abqhelpers\samples\4_P_cantilever_Concrete_Beam\Concrete_beam_4_cantilever_B.cae".
+session.viewports['Viewport: 1'].view.setValues(nearPlane=2144.57, 
+    farPlane=2848.56, cameraPosition=(-419.9, -2040.52, 1047.12), 
+    cameraUpVector=(0.115243, 0.439684, 0.890728), cameraTarget=(405.884, 
+    206.833, -169.058))
+session.viewports['Viewport: 1'].view.setValues(nearPlane=2110.49, 
+    farPlane=2882.64, width=1041.47, height=366.015, cameraPosition=(-396.435, 
+    -2050.45, 1044.71), cameraTarget=(429.349, 196.905, -171.47))
+session.viewports['Viewport: 1'].view.setValues(nearPlane=2104.92, 
+    farPlane=2888.21, cameraPosition=(-273.282, -2022.19, 1180.54), 
+    cameraTarget=(552.502, 225.161, -35.6354))
+#: Warning: No entities are pickable--change the pick filters to allow selection
+#: Warning: No entities are pickable--change the pick filters to allow selection
+#: Warning: No entities are pickable--change the pick filters to allow selection
+#: Warning: No entities are pickable--change the pick filters to allow selection
+#: Warning: No entities are pickable--change the pick filters to allow selection
+session.viewports['Viewport: 1'].view.setValues(session.views['Bottom'])
+session.viewports['Viewport: 1'].view.setProjection(projection=PARALLEL)
+elemType1 = mesh.ElemType(elemCode=C3D8R, elemLibrary=STANDARD, 
+    kinematicSplit=AVERAGE_STRAIN, secondOrderAccuracy=OFF, 
+    hourglassControl=DEFAULT, distortionControl=DEFAULT)
+elemType2 = mesh.ElemType(elemCode=C3D6, elemLibrary=STANDARD)
+elemType3 = mesh.ElemType(elemCode=C3D4, elemLibrary=STANDARD)
+a = mdb.models['Concrete_beam_4_cantilever_B'].rootAssembly
+c1 = a.instances['concrete-dummy-plates-1'].cells
+cells1 = c1.getSequenceFromMask(mask=('[#ffffffff #fe6bd7ff #3f ]', ), )
+pickedRegions =(cells1, )
+a.setElementType(regions=pickedRegions, elemTypes=(elemType1, elemType2, 
+    elemType3))
+#: 
+#: Element 53767: Quadratic tetrahedron, type C3D10
+#:    Nodal connectivity: 59315, 37507, 37508, 37515, 81253, 83430, 82900, 81887, 83429, 82901
+#: 
+#: Element 53801: Quadratic tetrahedron, type C3D10
+#:    Nodal connectivity: 59216, 37520, 37512, 37513, 82291, 83497, 82789, 80720, 83427, 82936
+#: 
+#: Element 63596: Quadratic tetrahedron, type C3D10
+#:    Nodal connectivity: 60380, 38346, 38345, 38338, 94054, 94052, 94053, 95993, 96691, 95995
+#: 
+#: Element 65833: Quadratic tetrahedron, type C3D10
+#:    Nodal connectivity: 60627, 38528, 38521, 38529, 97469, 99370, 97565, 99342, 97486, 99652
+#: 
+#: Element 65748: Quadratic tetrahedron, type C3D10
+#:    Nodal connectivity: 60720, 38543, 38535, 38536, 98987, 99758, 98393, 98989, 98991, 99459
+#: 
+#: Element 56934: Quadratic tetrahedron, type C3D10
+#:    Nodal connectivity: 59758, 37818, 37817, 6776, 87180, 87820, 87648, 87618, 87836, 87757

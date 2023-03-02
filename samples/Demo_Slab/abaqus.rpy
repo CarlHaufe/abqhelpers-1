@@ -2,7 +2,7 @@
 #
 # Abaqus/CAE Release 2023 replay file
 # Internal Version: 2022_09_28-20.11.55 183150
-# Run by ac134018 on Wed Mar  1 17:44:19 2023
+# Run by ac134018 on Wed Mar  1 19:22:22 2023
 #
 
 # from driverUtils import executeOnCaeGraphicsStartup
@@ -86,20 +86,3 @@ execfile('Demo_Slab.py', __main__.__dict__)
 #: Material 'reinforcement_b500' has been copied to the current model.
 p = mdb.models['Demo_Slab'].parts['concrete-dummy-plates']
 session.viewports['Viewport: 1'].setValues(displayedObject=p)
-a = mdb.models['Demo_Slab'].rootAssembly
-session.viewports['Viewport: 1'].setValues(displayedObject=a)
-session.viewports['Viewport: 1'].assemblyDisplay.setValues(
-    optimizationTasks=OFF, geometricRestrictions=OFF, stopConditions=OFF)
-session.viewports['Viewport: 1'].assemblyDisplay.setValues(mesh=ON)
-session.viewports['Viewport: 1'].assemblyDisplay.meshOptions.setValues(
-    meshTechnique=ON)
-session.viewports['Viewport: 1'].view.setValues(session.views['Bottom'])
-session.viewports['Viewport: 1'].view.setValues(nearPlane=3562.68, 
-    farPlane=3981.75, width=1769.19, height=640.113)
-session.viewports['Viewport: 1'].view.setValues(nearPlane=3344.32, 
-    farPlane=4200.1, width=1660.76, height=600.881, cameraPosition=(40.5762, 
-    -3548.33, 881.497), cameraUpVector=(0.0689698, 0.199492, 0.977469), 
-    cameraTarget=(850, 49.9998, 90))
-session.viewports['Viewport: 1'].view.setValues(nearPlane=3307.04, 
-    farPlane=4237.39, width=1642.25, height=594.183, cameraPosition=(-162.604, 
-    -3522.34, 755.325), cameraUpVector=(0.0546864, 0.167818, 0.9843))
